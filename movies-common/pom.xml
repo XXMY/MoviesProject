@@ -11,6 +11,9 @@
     <modules>
         <module>../movies-login</module>
         <module>../movies-register</module>
+        <module>../movies-spider</module>
+        <module>../movies-statistic</module>
+        <module>../movies-core</module>
     </modules>
 
     <parent>
