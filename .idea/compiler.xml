@@ -6,11 +6,24 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="movies-parent" />
+        <module name="movies-common" />
+        <module name="movies-home" />
+        <module name="movies-login" />
+        <module name="movies-manage" />
+        <module name="movies-register" />
+        <module name="movies-spider" />
+        <module name="movies-statistic" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="movies-parent" target="1.5" />
+      <module name="movies-common" target="1.6" />
+      <module name="movies-home" target="1.6" />
+      <module name="movies-login" target="1.6" />
+      <module name="movies-manage" target="1.6" />
+      <module name="movies-parent" target="1.6" />
+      <module name="movies-register" target="1.6" />
+      <module name="movies-spider" target="1.6" />
+      <module name="movies-statistic" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>
