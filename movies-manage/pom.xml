@@ -13,5 +13,11 @@
     <groupId>com.cfw.movies.manage</groupId>
     <artifactId>movies-manage</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>com.cfw.movies.common</groupId>
+            <artifactId>movies-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>
