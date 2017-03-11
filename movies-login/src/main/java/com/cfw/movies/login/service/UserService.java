@@ -8,13 +8,14 @@ import com.cfw.movies.commons.model.Users;
  * @time since 2016年3月26日 下午4:38:30
  */
 public interface UserService {
-	
+
 	/**
 	 * Check whether user exists.
-	 * @author Fangwei_Cai
-	 * @time since 2016年3月26日 下午7:38:17
+	 * @param userName
+	 * @return true if user exists, otherwise false.
+	 *
 	 */
-	boolean userExists(Users user);
+	boolean userExists(String userName);
 	
 	/**
 	 * The value of username attribute cannot empty.
@@ -22,12 +23,6 @@ public interface UserService {
 	 * @time since 2016年3月26日 下午8:05:26
 	 */
 	boolean modifyUsersInfo(Users newUser);
-	
-	
-	/**
-	 * @author Fangwei_Cai
-	 * @time since 2016年3月27日 上午10:05:11
-	 */
-	boolean register(Users user);
+
 
 }
