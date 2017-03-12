@@ -50,10 +50,21 @@ public class UsersDaoImpl implements UsersDao {
 	 * @time since 2016年5月1日 下午2:16:42
 	 */
 	@Override
-	public Users selectUserByName(String username) {
-		Users user = usersMapper.selectUserByName(username);
+	public Users selectUserInBrief(String username) {
+		Users user = usersMapper.selectUserInBrief(username);
 		return user;
 	}
 
-
+	/**
+	 * @param username
+	 * @param password
+	 * @return
+	 * @author CaiFangwei
+	 * @time since 2017-3-12 18:42:02
+	 */
+	@Override
+	public Users selectUserInBrief(String username, String password) {
+		Users user = this.usersMapper.selectUserInBrief(username,password);
+		return user;
+	}
 }

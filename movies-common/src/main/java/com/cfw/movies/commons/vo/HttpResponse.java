@@ -1,5 +1,7 @@
 package com.cfw.movies.commons.vo;
 
+import java.util.UUID;
+
 /**
  * @author Fangwei_Cai
  * @time since 2016年4月11日 上午10:32:08
@@ -12,8 +14,11 @@ public class HttpResponse {
 
 	private Object object;
 
+	private String requestId;
+
 	public HttpResponse() {
 		super();
+		this.requestId = UUID.randomUUID().toString();
 		// TODO Auto-generated constructor stub
 	}
 
@@ -47,9 +52,21 @@ public class HttpResponse {
 		this.object = object;
 	}
 
+	public String getRequestId() {
+		return requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
 	@Override
 	public String toString() {
-		return "AjaxRequestResult [code=" + code + ", message=" + message + ", object=" + object + "]";
+		return "HttpResponse{" +
+				"code=" + code +
+				", message='" + message + '\'' +
+				", object=" + object +
+				", requestId='" + requestId + '\'' +
+				'}';
 	}
-	
 }

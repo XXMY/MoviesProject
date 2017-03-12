@@ -1,16 +1,17 @@
 package com.cfw.movies.login.controller;
 
 import com.cfw.movies.commons.controller.BaseController;
+import com.cfw.movies.commons.enums.ResponseTypeEnum;
 import com.cfw.movies.commons.model.Users;
 import com.cfw.movies.commons.utils.CodeHelper;
 import com.cfw.movies.commons.vo.HttpResponse;
 import com.cfw.movies.login.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,7 +24,7 @@ import java.util.Map;
 @RequestMapping("/Login")
 public class LoginController extends BaseController {
 	
-	@Autowired
+	@Resource(name = "userServiceImpl")
 	private UserService userService;
 	
 	/**
@@ -35,19 +36,17 @@ public class LoginController extends BaseController {
 	 */
 	@RequestMapping(value="/logined",method=RequestMethod.GET)
 	@ResponseBody
-	public HttpResponse checkLogin(HttpSession session){
-		HttpResponse result = null;
-		// Get the information from session.
-		Object object =  session.getAttribute(session.getId());
-		
-		if(CodeHelper.isNull(object)){
-			result = buildHttpResponse(0, "用户未登录");
-			return result;
+	public HttpResponse logined(HttpSession session){
+		HttpResponse result = new HttpResponse();
+		// Get the information from cache.
+		Users user = this.userService.checkLogined(session.getId());
+		if(user == null){
+			result = buildHttpResponse(ResponseTypeEnum.USER_NOT_LOGINED);
+		}else{
+			result = buildHttpResponse(ResponseTypeEnum.USER_LOGINED);
+			result.setObject(user);
 		}
-		
-		result = buildHttpResponse(1, "用户已登录");
-		result.setObject(object);
-		
+
 		return result;
 	}
 	
@@ -56,26 +55,25 @@ public class LoginController extends BaseController {
 	 * @author Fangwei_Cai
 	 * @time since 2016年5月1日 下午11:03:04
 	 * @param session
-	 * @param user
+	 * @param username
 	 * @return
 	 */
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	@ResponseBody
-	public HttpResponse userLogin(HttpSession session, Users user){
-		HttpResponse result = null;
-		
-		boolean userExists = userService.userExists(user.getUsername());
-		if(userExists){
-			Map<String,Object> map = new HashMap<String, Object>();
-			map.put("id", user.getId());
-			map.put("username", user.getUsername());
-			map.put("type", user.isType());
-			
-			session.setAttribute(session.getId(), map);
-			
-			result = buildHttpResponse(1, "用户登录成功");
+	public HttpResponse login(HttpSession session, String username,String password){
+		HttpResponse result = new HttpResponse();
+		Users user = null;
+
+		try{
+			user = userService.userLogin(session.getId(),username,password);
+		}catch(Exception e){
+
+		}
+
+		if(user != null){
+			result = buildHttpResponse(ResponseTypeEnum.SUCCESS);
 		}else{
-			result = buildHttpResponse(0,"用户不存在");
+			result = buildHttpResponse(ResponseTypeEnum.USER_NOT_EXISTS);
 		}
 		
 		
@@ -93,6 +91,6 @@ public class LoginController extends BaseController {
 	public HttpResponse userLogout(HttpSession session){
 		session.invalidate();
 		
-		return buildHttpResponse(1,"注销成功");
+		return buildHttpResponse(ResponseTypeEnum.SUCCESS);
 	}
 }

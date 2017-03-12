@@ -33,9 +33,19 @@ public interface UsersDao {
 	/**
 	 * @author Fangwei_Cai
 	 * @time since 2016年5月1日 下午2:16:26
-	 * @param userName
+	 * @param username
 	 * @return
 	 */
-	Users selectUserByName(String userName);
+	Users selectUserInBrief(String username);
+
+	/**
+	 *
+	 * @param username
+	 * @param password
+	 * @return
+	 * @author CaiFangwei
+	 * @time since 2017-3-12 18:42:02
+	 */
+	Users selectUserInBrief(String username,String password);
 	
 }

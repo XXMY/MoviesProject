@@ -1,5 +1,6 @@
 package com.cfw.movies.commons.controller;
 
+import com.cfw.movies.commons.enums.ResponseTypeEnum;
 import com.cfw.movies.commons.vo.HttpResponse;
 
 /**
@@ -21,5 +22,10 @@ public abstract class BaseController {
 		HttpResponse httpResponse = new HttpResponse(code,message);
 		
 		return httpResponse;
+	}
+
+	public HttpResponse buildHttpResponse(ResponseTypeEnum type){
+
+		return this.buildHttpResponse(type.getCode(),type.getDescription());
 	}
 }
