@@ -12,7 +12,7 @@ public class HttpResponse {
 
 	private String message;
 
-	private Object object;
+	private Object data;
 
 	private String requestId;
 
@@ -44,12 +44,12 @@ public class HttpResponse {
 		this.message = message;
 	}
 
-	public Object getObject() {
-		return object;
+	public Object getData() {
+		return data;
 	}
 
-	public void setObject(Object object) {
-		this.object = object;
+	public void setData(Object data) {
+		this.data = data;
 	}
 
 	public String getRequestId() {
@@ -65,7 +65,7 @@ public class HttpResponse {
 		return "HttpResponse{" +
 				"code=" + code +
 				", message='" + message + '\'' +
-				", object=" + object +
+				", object=" + data +
 				", requestId='" + requestId + '\'' +
 				'}';
 	}

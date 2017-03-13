@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../MovieSource/MovieSource.iml" filepath="$PROJECT_DIR$/../MovieSource/MovieSource.iml" />
       <module fileurl="file://$PROJECT_DIR$/movies-common/movies-common.iml" filepath="$PROJECT_DIR$/movies-common/movies-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/movies-home/movies-home.iml" filepath="$PROJECT_DIR$/movies-home/movies-home.iml" />
       <module fileurl="file://$PROJECT_DIR$/movies-login/movies-login.iml" filepath="$PROJECT_DIR$/movies-login/movies-login.iml" />

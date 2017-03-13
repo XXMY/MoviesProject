@@ -22,7 +22,7 @@ public interface UsersMapper extends BaseMapper<Users> {
 	 * @return
 	 */
 	@Select("SELECT username, head_pic, type FROM users WHERE username = #{userName} limit 1")
-	Users selectUserInBrief(@Param("userName") String userName);
+	Users selectUserInBriefByName(@Param("userName") String userName);
 
 	/**
 	 * @param userName

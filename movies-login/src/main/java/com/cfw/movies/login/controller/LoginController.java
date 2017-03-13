@@ -3,9 +3,12 @@ package com.cfw.movies.login.controller;
 import com.cfw.movies.commons.controller.BaseController;
 import com.cfw.movies.commons.enums.ResponseTypeEnum;
 import com.cfw.movies.commons.model.Users;
-import com.cfw.movies.commons.utils.CodeHelper;
+import com.cfw.movies.commons.security.rsa.RSA;
+import com.cfw.movies.commons.security.rsa.RSAKeyPairs;
 import com.cfw.movies.commons.vo.HttpResponse;
+import com.cfw.movies.commons.vo.RsaVO;
 import com.cfw.movies.login.service.UserService;
+import com.google.gson.Gson;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,8 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
-import java.util.HashMap;
-import java.util.Map;
+import java.security.PrivateKey;
 
 /**
  * @author Fangwei_Cai
@@ -44,7 +46,7 @@ public class LoginController extends BaseController {
 			result = buildHttpResponse(ResponseTypeEnum.USER_NOT_LOGINED);
 		}else{
 			result = buildHttpResponse(ResponseTypeEnum.USER_LOGINED);
-			result.setObject(user);
+			result.setData(user);
 		}
 
 		return result;
@@ -54,18 +56,20 @@ public class LoginController extends BaseController {
 	 * 处理用户登录请求
 	 * @author Fangwei_Cai
 	 * @time since 2016年5月1日 下午11:03:04
-	 * @param session
-	 * @param username
+	 * @param rsaVO
 	 * @return
 	 */
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	@ResponseBody
-	public HttpResponse login(HttpSession session, String username,String password){
+	public HttpResponse login(HttpSession session, RsaVO rsaVO){
 		HttpResponse result = new HttpResponse();
 		Users user = null;
 
 		try{
-			user = userService.userLogin(session.getId(),username,password);
+			String decoded = RSA.decodeBase64String((PrivateKey)RSAKeyPairs.publicPrivateKeys[1].get(rsaVO.getV()),rsaVO.getData());
+			Gson gson = new Gson();
+			user = (Users)gson.fromJson(decoded,Users.class);
+			user = userService.userLogin(session.getId(),user.getUsername(),user.getPassword());
 		}catch(Exception e){
 
 		}

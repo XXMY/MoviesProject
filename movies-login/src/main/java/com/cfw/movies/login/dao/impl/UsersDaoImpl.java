@@ -51,7 +51,7 @@ public class UsersDaoImpl implements UsersDao {
 	 */
 	@Override
 	public Users selectUserInBrief(String username) {
-		Users user = usersMapper.selectUserInBrief(username);
+		Users user = usersMapper.selectUserInBriefByName(username);
 		return user;
 	}
 

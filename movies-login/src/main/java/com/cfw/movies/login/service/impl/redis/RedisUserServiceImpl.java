@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 @Service("redisUserServiceImpl")
 public class RedisUserServiceImpl extends UserServiceImpl {
 
-    @Override
     public boolean userExists(String userName) {
         this.redisGet(userName);
         return false;
