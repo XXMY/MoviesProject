@@ -44,7 +44,7 @@ public class UserServiceImpl extends BaseRedisService implements UserService {
 			// Cache with 5 hours.
 			// Use session id to cache.
 			Gson gson = new Gson();
-			super.redisSet(sessionId,gson.toJson(user),5L, TimeUnit.HOURS);
+			super.redisSet(String.format(RedisKeyEnum.USER_LOGIN_CACHE.key,sessionId),gson.toJson(user),5L, TimeUnit.HOURS);
 			return user;
 		}
 

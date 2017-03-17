@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6cb0c94b-e00a-483c-a2c7-380e6d6a7ea7" name="Default" comment="">
+    <list default="true" readonly="true" id="6cb0c94b-e00a-483c-a2c7-380e6d6a7ea7" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../MovieSource/js/config.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../MovieSource/plugins/jsencrypt" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../MovieSource/plugins/jsencrypt/jsencrypt.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/controller/SecurityController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/properties/CommonProperties.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/security/rsa/RSA.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/security/rsa/RSAKeyGenerator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/security/rsa/RSAKeyPairs.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/security/rsa/RSAKeyRestore.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/vo/RsaVO.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/plugins/redis/CRedis.java" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../MovieSource/html/login" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../MovieSource/js/login.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_7.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MovieSource/MovieSource.iml" afterPath="$PROJECT_DIR$/../MovieSource/MovieSource.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MovieSource/js/admin/management.js" afterPath="$PROJECT_DIR$/../MovieSource/js/admin/management.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MovieSource/js/front/details.js" afterPath="$PROJECT_DIR$/../MovieSource/js/front/details.js" />
@@ -117,28 +110,11 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MovieSource/plugins/angular-1.4.9/docs/ptore2e/example-week-input-directive/default_test.js" afterPath="$PROJECT_DIR$/../MovieSource/plugins/angular-1.4.9/docs/ptore2e/example-week-input-directive/default_test.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MovieSource/plugins/iheima/static/ihm/js/yii.js" afterPath="$PROJECT_DIR$/../MovieSource/plugins/iheima/static/ihm/js/yii.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MovieSource/plugins/jquery-2.1.1/jquery.js" afterPath="$PROJECT_DIR$/../MovieSource/plugins/jquery-2.1.1/jquery.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies-common/movies-common.iml" afterPath="$PROJECT_DIR$/movies-common/movies-common.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies-common/pom.xml" afterPath="$PROJECT_DIR$/movies-common/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/vo/HttpResponse.java" afterPath="$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/vo/HttpResponse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies-home/movies-home.iml" afterPath="$PROJECT_DIR$/movies-home/movies-home.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/enums/RedisKeyEnum.java" afterPath="$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/enums/RedisKeyEnum.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies-login/config/application.properties" afterPath="$PROJECT_DIR$/movies-login/config/application.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies-login/movies-login.iml" afterPath="$PROJECT_DIR$/movies-login/movies-login.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies-login/src/main/java/com/cfw/movies/login/Application.java" afterPath="$PROJECT_DIR$/movies-login/src/main/java/com/cfw/movies/login/Application.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies-login/src/main/java/com/cfw/movies/login/controller/LoginController.java" afterPath="$PROJECT_DIR$/movies-login/src/main/java/com/cfw/movies/login/controller/LoginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies-login/src/main/java/com/cfw/movies/login/dao/impl/UsersDaoImpl.java" afterPath="$PROJECT_DIR$/movies-login/src/main/java/com/cfw/movies/login/dao/impl/UsersDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies-login/src/main/java/com/cfw/movies/login/mapper/UsersMapper.java" afterPath="$PROJECT_DIR$/movies-login/src/main/java/com/cfw/movies/login/mapper/UsersMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies-login/src/main/java/com/cfw/movies/login/service/impl/redis/RedisUserServiceImpl.java" afterPath="$PROJECT_DIR$/movies-login/src/main/java/com/cfw/movies/login/service/impl/redis/RedisUserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies-manage/movies-manage.iml" afterPath="$PROJECT_DIR$/movies-manage/movies-manage.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies-parent/movies-parent.iml" afterPath="$PROJECT_DIR$/movies-parent/movies-parent.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies-parent/pom.xml" afterPath="$PROJECT_DIR$/movies-parent/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies-register/movies-register.iml" afterPath="$PROJECT_DIR$/movies-register/movies-register.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies-spider/movies-spider.iml" afterPath="$PROJECT_DIR$/movies-spider/movies-spider.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies-statistic/movies-statistic.iml" afterPath="$PROJECT_DIR$/movies-statistic/movies-statistic.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies-login/src/main/java/com/cfw/movies/login/service/impl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/movies-login/src/main/java/com/cfw/movies/login/service/impl/UserServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies-register/config/application.properties" afterPath="$PROJECT_DIR$/movies-register/config/application.properties" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/../MovieSource/html/login/index.html" afterPath="$PROJECT_DIR$/../MovieSource/html/login.html" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/../MovieSource/html/login/register.html" afterPath="$PROJECT_DIR$/../MovieSource/html/register.html" />
     </list>
@@ -163,60 +139,168 @@
       <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/movies-login/src/main/java/com/cfw/movies/login/controller/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1824">
-              <caret line="92" column="28" lean-forward="false" selection-start-line="92" selection-start-column="22" selection-end-line="92" selection-end-column="28" />
+            <state relative-caret-position="1320">
+              <caret line="71" column="37" lean-forward="false" selection-start-line="71" selection-start-column="37" selection-end-line="71" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/movies-register/config/application.properties">
+      <file leaf-file-name="RedisKeyEnum.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/enums/RedisKeyEnum.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="11" column="23" lean-forward="false" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+            <state relative-caret-position="144">
+              <caret line="6" column="47" lean-forward="false" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../MovieSource/html/login.html">
+      <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/movies-login/src/main/java/com/cfw/movies/login/service/impl/UserServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="106">
-              <caret line="11" column="57" lean-forward="false" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
+            <state relative-caret-position="216">
+              <caret line="19" column="44" lean-forward="true" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BaseRedisService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/service/redis/BaseRedisService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CRedis.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/plugins/redis/CRedis.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CglibAopProxy.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.3.4.RELEASE/spring-aop-4.3.4.RELEASE-sources.jar!/org/springframework/aop/framework/CglibAopProxy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="13968">
+              <caret line="657" column="0" lean-forward="false" selection-start-line="657" selection-start-column="0" selection-end-line="657" selection-end-column="0" />
               <folding>
-                <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#0#35546#0" expanded="false" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#6040#6041#0" expanded="false" />
+                <element signature="e#6068#6069#0" expanded="false" />
+                <element signature="e#9239#9240#0" expanded="false" />
+                <element signature="e#9267#9268#0" expanded="false" />
+                <element signature="e#15085#15086#0" expanded="false" />
+                <element signature="e#15178#15179#0" expanded="false" />
+                <element signature="e#15803#15804#0" expanded="false" />
+                <element signature="e#15832#15833#0" expanded="false" />
+                <element signature="e#16401#16402#0" expanded="false" />
+                <element signature="e#16430#16431#0" expanded="false" />
+                <element signature="e#17229#17230#0" expanded="false" />
+                <element signature="e#17270#17271#0" expanded="false" />
+                <element signature="e#17955#17956#0" expanded="false" />
+                <element signature="e#17996#17997#0" expanded="false" />
+                <element signature="e#18834#18835#0" expanded="false" />
+                <element signature="e#18863#18864#0" expanded="false" />
+                <element signature="e#18907#18908#0" expanded="false" />
+                <element signature="e#18934#18935#0" expanded="false" />
+                <element signature="e#19184#19185#0" expanded="false" />
+                <element signature="e#19215#19216#0" expanded="false" />
+                <element signature="e#19611#19612#0" expanded="false" />
+                <element signature="e#19642#19643#0" expanded="false" />
+                <element signature="e#20505#20506#0" expanded="false" />
+                <element signature="e#20536#20537#0" expanded="false" />
+                <element signature="e#22039#22040#0" expanded="false" />
+                <element signature="e#22070#22071#0" expanded="false" />
+                <element signature="e#24220#24221#0" expanded="false" />
+                <element signature="e#24259#24260#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/movies-parent/pom.xml">
+      <file leaf-file-name="UsersDaoImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/movies-login/src/main/java/com/cfw/movies/login/dao/impl/UsersDaoImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="12" column="40" lean-forward="true" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../MovieSource/js/config.js">
+      <file leaf-file-name="Users.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/model/Users.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="18" />
-              <folding />
+            <state relative-caret-position="432">
+              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <folding>
+                <element signature="e#364#365#0" expanded="true" />
+                <element signature="e#386#387#0" expanded="true" />
+                <element signature="e#514#515#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../MovieSource/js/front/login.js">
+      <file leaf-file-name="StandardSessionFacade.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/8.5.6/tomcat-embed-core-8.5.6-sources.jar!/org/apache/catalina/session/StandardSessionFacade.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="38" column="33" lean-forward="true" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
+            <state relative-caret-position="912">
+              <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#4207#0" expanded="false" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#1337#1338#0" expanded="false" />
+                <element signature="e#1375#1376#0" expanded="false" />
+                <element signature="e#1677#1678#0" expanded="false" />
+                <element signature="e#1725#1726#0" expanded="false" />
+                <element signature="e#1863#1864#0" expanded="false" />
+                <element signature="e#1915#1916#0" expanded="false" />
+                <element signature="e#2140#2141#0" expanded="false" />
+                <element signature="e#2196#2197#0" expanded="false" />
+                <element signature="e#2254#2255#0" expanded="false" />
+                <element signature="e#2309#2310#0" expanded="false" />
+                <element signature="e#2535#2536#0" expanded="false" />
+                <element signature="e#2585#2586#0" expanded="false" />
+                <element signature="e#2647#2648#0" expanded="false" />
+                <element signature="e#2696#2697#0" expanded="false" />
+                <element signature="e#2893#2894#0" expanded="false" />
+                <element signature="e#2942#2943#0" expanded="false" />
+                <element signature="e#3011#3012#0" expanded="false" />
+                <element signature="e#3061#3062#0" expanded="false" />
+                <element signature="e#3258#3259#0" expanded="false" />
+                <element signature="e#3304#3305#0" expanded="false" />
+                <element signature="e#3378#3379#0" expanded="false" />
+                <element signature="e#3427#3428#0" expanded="false" />
+                <element signature="e#3635#3636#0" expanded="false" />
+                <element signature="e#3684#3685#0" expanded="false" />
+                <element signature="e#3747#3748#0" expanded="false" />
+                <element signature="e#3792#3793#0" expanded="false" />
+                <element signature="e#3992#3993#0" expanded="false" />
+                <element signature="e#4037#4038#0" expanded="false" />
+                <element signature="e#4084#4085#0" expanded="false" />
+                <element signature="e#4120#4121#0" expanded="false" />
+                <element signature="e#4165#4166#0" expanded="false" />
+                <element signature="e#4203#4204#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RsaVO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/vo/RsaVO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -227,8 +311,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JavaScript File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -268,16 +352,13 @@
         <option value="$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/enums/ExceptionTypeEnum.java" />
         <option value="$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/controller/BaseController.java" />
         <option value="$PROJECT_DIR$/movies-login/src/main/java/com/cfw/movies/login/service/UserService.java" />
-        <option value="$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/enums/RedisKeyEnum.java" />
         <option value="$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/service/redis/BaseRedisService.java" />
         <option value="$PROJECT_DIR$/movies-login/src/main/java/com/cfw/movies/login/dao/UsersDao.java" />
-        <option value="$PROJECT_DIR$/movies-login/src/main/java/com/cfw/movies/login/service/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/enums/ResponseTypeEnum.java" />
         <option value="$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/security/rsa/RSAKeyGenerator.java" />
         <option value="$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/security/rsa/RSA.java" />
         <option value="$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/vo/RsaVO.java" />
         <option value="$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/vo/HttpResponse.java" />
-        <option value="$PROJECT_DIR$/movies-login/config/application.properties" />
         <option value="$PROJECT_DIR$/movies-login/src/main/java/com/cfw/movies/login/service/impl/redis/RedisUserServiceImpl.java" />
         <option value="$PROJECT_DIR$/movies-common/pom.xml" />
         <option value="$PROJECT_DIR$/movies-parent/pom.xml" />
@@ -288,11 +369,14 @@
         <option value="$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/controller/SecurityController.java" />
         <option value="$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/properties/CommonProperties.java" />
         <option value="$PROJECT_DIR$/movies-login/src/main/java/com/cfw/movies/login/controller/LoginController.java" />
-        <option value="$PROJECT_DIR$/movies-register/config/application.properties" />
         <option value="$PROJECT_DIR$/../MovieSource/js/login.js" />
+        <option value="$PROJECT_DIR$/../MovieSource/html/login.html" />
         <option value="$PROJECT_DIR$/../MovieSource/js/config.js" />
         <option value="$PROJECT_DIR$/../MovieSource/js/front/login.js" />
-        <option value="$PROJECT_DIR$/../MovieSource/html/login.html" />
+        <option value="$PROJECT_DIR$/movies-register/config/application.properties" />
+        <option value="$PROJECT_DIR$/movies-login/config/application.properties" />
+        <option value="$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/enums/RedisKeyEnum.java" />
+        <option value="$PROJECT_DIR$/movies-login/src/main/java/com/cfw/movies/login/service/impl/UserServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -340,7 +424,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -350,7 +433,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="movies-register" />
+              <option name="myItemId" value="movies-common" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -360,7 +443,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="movies-register" />
+              <option name="myItemId" value="movies-common" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -374,55 +457,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="movies-register" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MoviesProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="movies-parent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MoviesProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="movies-login" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MoviesProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="movies-login" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MoviesProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="movies-login" />
+              <option name="myItemId" value="movies-common" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -440,7 +475,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="movies-login" />
+              <option name="myItemId" value="movies-common" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -456,42 +491,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="login" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MoviesProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="movies-login" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="login" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
+              <option name="myItemId" value="commons" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -903,6 +909,7 @@
   </component>
   <component name="SvnConfiguration" cleanupOnStartRun="true">
     <configuration>C:\Users\Duskrain\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
   </component>
   <component name="SvnFileUrlMappingImpl">
     <option name="myMappingRoots">
@@ -931,7 +938,10 @@
       <updated>1489230979294</updated>
       <workItem from="1489231076693" duration="20000" />
       <workItem from="1489231203519" duration="21382000" />
-      <workItem from="1489367593921" duration="10387000" />
+      <workItem from="1489367593921" duration="12865000" />
+      <workItem from="1489626116680" duration="843000" />
+      <workItem from="1489650866516" duration="3130000" />
+      <workItem from="1489731977276" duration="412000" />
     </task>
     <servers />
   </component>
@@ -968,35 +978,34 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31789000" />
+    <option name="totallyTimeSpent" value="38652000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25641027" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26602563" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27719665" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39958158" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39958158" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27719665" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1015,7 +1024,7 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="7" />
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1024,115 +1033,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/movies-login/config/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="25" column="23" lean-forward="false" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/properties/CommonProperties.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="18" column="61" lean-forward="false" selection-start-line="18" selection-start-column="61" selection-end-line="18" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/controller/SecurityController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="38" column="12" lean-forward="true" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/vo/RsaVO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../MovieSource/plugins/jsencrypt/jsencrypt.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../MovieSource/js/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../MovieSource/js/upload/picUpload.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../MovieSource/js/upload/mananger.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="182" column="24" lean-forward="true" selection-start-line="182" selection-start-column="24" selection-end-line="182" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../MovieSource/css/front/index/loaders.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../MovieSource/css/front/index/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../MovieSource/css/banner.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1224">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../MovieSource/css/management.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1358">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../MovieSource/css/sidebarPrev.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3312">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../MovieSource/css/test.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1281,27 +1185,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/movies-login/src/main/java/com/cfw/movies/login/controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1824">
-          <caret line="92" column="28" lean-forward="false" selection-start-line="92" selection-start-column="22" selection-end-line="92" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movies-register/config/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="11" column="23" lean-forward="false" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/movies-login/logs/movies-login.log">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1152">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1309,40 +1196,214 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/HZ$D.554.3071/DeviceInfoReqHandler.class" />
     <entry file="file://$PROJECT_DIR$/../MovieSource/html/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
+        <state relative-caret-position="264">
           <caret line="11" column="57" lean-forward="false" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/movies-parent/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="12" column="40" lean-forward="true" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
-          <folding />
+        <state relative-caret-position="288">
+          <caret line="12" column="40" lean-forward="false" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../MovieSource/js/config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="18" />
-          <folding />
+        <state relative-caret-position="192">
+          <caret line="8" column="60" lean-forward="false" selection-start-line="8" selection-start-column="60" selection-end-line="8" selection-end-column="60" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../MovieSource/js/front/login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="38" column="33" lean-forward="true" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
+        <state relative-caret-position="1008">
+          <caret line="42" column="43" lean-forward="false" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movies-register/config/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="7" column="43" lean-forward="true" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movies-login/config/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/vo/RsaVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/8.5.6/tomcat-embed-core-8.5.6-sources.jar!/org/apache/catalina/session/StandardSessionFacade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="912">
+          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#4207#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#1337#1338#0" expanded="false" />
+            <element signature="e#1375#1376#0" expanded="false" />
+            <element signature="e#1677#1678#0" expanded="false" />
+            <element signature="e#1725#1726#0" expanded="false" />
+            <element signature="e#1863#1864#0" expanded="false" />
+            <element signature="e#1915#1916#0" expanded="false" />
+            <element signature="e#2140#2141#0" expanded="false" />
+            <element signature="e#2196#2197#0" expanded="false" />
+            <element signature="e#2254#2255#0" expanded="false" />
+            <element signature="e#2309#2310#0" expanded="false" />
+            <element signature="e#2535#2536#0" expanded="false" />
+            <element signature="e#2585#2586#0" expanded="false" />
+            <element signature="e#2647#2648#0" expanded="false" />
+            <element signature="e#2696#2697#0" expanded="false" />
+            <element signature="e#2893#2894#0" expanded="false" />
+            <element signature="e#2942#2943#0" expanded="false" />
+            <element signature="e#3011#3012#0" expanded="false" />
+            <element signature="e#3061#3062#0" expanded="false" />
+            <element signature="e#3258#3259#0" expanded="false" />
+            <element signature="e#3304#3305#0" expanded="false" />
+            <element signature="e#3378#3379#0" expanded="false" />
+            <element signature="e#3427#3428#0" expanded="false" />
+            <element signature="e#3635#3636#0" expanded="false" />
+            <element signature="e#3684#3685#0" expanded="false" />
+            <element signature="e#3747#3748#0" expanded="false" />
+            <element signature="e#3792#3793#0" expanded="false" />
+            <element signature="e#3992#3993#0" expanded="false" />
+            <element signature="e#4037#4038#0" expanded="false" />
+            <element signature="e#4084#4085#0" expanded="false" />
+            <element signature="e#4120#4121#0" expanded="false" />
+            <element signature="e#4165#4166#0" expanded="false" />
+            <element signature="e#4203#4204#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/model/Users.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding>
+            <element signature="e#364#365#0" expanded="true" />
+            <element signature="e#386#387#0" expanded="true" />
+            <element signature="e#514#515#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.3.4.RELEASE/spring-aop-4.3.4.RELEASE-sources.jar!/org/springframework/aop/framework/CglibAopProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13968">
+          <caret line="657" column="0" lean-forward="false" selection-start-line="657" selection-start-column="0" selection-end-line="657" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#35546#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#6040#6041#0" expanded="false" />
+            <element signature="e#6068#6069#0" expanded="false" />
+            <element signature="e#9239#9240#0" expanded="false" />
+            <element signature="e#9267#9268#0" expanded="false" />
+            <element signature="e#15085#15086#0" expanded="false" />
+            <element signature="e#15178#15179#0" expanded="false" />
+            <element signature="e#15803#15804#0" expanded="false" />
+            <element signature="e#15832#15833#0" expanded="false" />
+            <element signature="e#16401#16402#0" expanded="false" />
+            <element signature="e#16430#16431#0" expanded="false" />
+            <element signature="e#17229#17230#0" expanded="false" />
+            <element signature="e#17270#17271#0" expanded="false" />
+            <element signature="e#17955#17956#0" expanded="false" />
+            <element signature="e#17996#17997#0" expanded="false" />
+            <element signature="e#18834#18835#0" expanded="false" />
+            <element signature="e#18863#18864#0" expanded="false" />
+            <element signature="e#18907#18908#0" expanded="false" />
+            <element signature="e#18934#18935#0" expanded="false" />
+            <element signature="e#19184#19185#0" expanded="false" />
+            <element signature="e#19215#19216#0" expanded="false" />
+            <element signature="e#19611#19612#0" expanded="false" />
+            <element signature="e#19642#19643#0" expanded="false" />
+            <element signature="e#20505#20506#0" expanded="false" />
+            <element signature="e#20536#20537#0" expanded="false" />
+            <element signature="e#22039#22040#0" expanded="false" />
+            <element signature="e#22070#22071#0" expanded="false" />
+            <element signature="e#24220#24221#0" expanded="false" />
+            <element signature="e#24259#24260#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movies-login/src/main/java/com/cfw/movies/login/dao/impl/UsersDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movies-login/target/classes/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="11" column="27" lean-forward="true" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/enums/RedisKeyEnum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" column="47" lean-forward="false" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movies-login/src/main/java/com/cfw/movies/login/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="21" column="10" lean-forward="false" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movies-login/src/main/java/com/cfw/movies/login/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1320">
+          <caret line="71" column="37" lean-forward="false" selection-start-line="71" selection-start-column="37" selection-end-line="71" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movies-login/src/main/java/com/cfw/movies/login/service/impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="19" column="44" lean-forward="true" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/service/redis/BaseRedisService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movies-common/src/main/java/com/cfw/movies/commons/plugins/redis/CRedis.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>
