@@ -20,6 +20,6 @@ public class RedisUserServiceImplTest {
 
     @Test
     public void test(){
-        System.out.println(redisUserService.redisGet("name"));
+        System.out.println();
     }
 }

@@ -2,6 +2,7 @@ package com.cfw.movies.login.service.impl;
 
 import com.cfw.movies.commons.enums.RedisKeyEnum;
 import com.cfw.movies.commons.model.Users;
+import com.cfw.movies.commons.plugins.redis.CRedis;
 import com.cfw.movies.commons.service.redis.BaseRedisService;
 import com.cfw.movies.login.dao.UsersDao;
 import com.cfw.movies.login.service.UserService;
@@ -17,10 +18,13 @@ import java.util.concurrent.TimeUnit;
  * @time since 2016年3月26日 下午8:07:16
  */
 @Service("userServiceImpl")
-public class UserServiceImpl extends BaseRedisService implements UserService {
+public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UsersDao usersDaoImpl;
+
+	@Autowired
+	private CRedis redis;
 
 	/**
 	 * User login.<br/>
@@ -44,7 +48,7 @@ public class UserServiceImpl extends BaseRedisService implements UserService {
 			// Cache with 5 hours.
 			// Use session id to cache.
 			Gson gson = new Gson();
-			super.redisSet(String.format(RedisKeyEnum.USER_LOGIN_CACHE.key,sessionId),gson.toJson(user),5L, TimeUnit.HOURS);
+			redis.set(String.format(RedisKeyEnum.USER_LOGIN_CACHE.key,sessionId),gson.toJson(user),5L, TimeUnit.HOURS);
 			return user;
 		}
 
@@ -59,7 +63,7 @@ public class UserServiceImpl extends BaseRedisService implements UserService {
 	 */
 	@Override
 	public Users checkLogined(String sessionId) {
-		String cache = super.redisGet(RedisKeyEnum.USER_LOGIN_CACHE.key);
+		String cache = redis.get(RedisKeyEnum.USER_LOGIN_CACHE.key);
 		Gson gson = new Gson();
 		Users user = gson.fromJson(cache,Users.class);
 		return user;
