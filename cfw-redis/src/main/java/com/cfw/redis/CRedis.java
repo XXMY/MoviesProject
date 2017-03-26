@@ -1,4 +1,4 @@
-package com.cfw.movies.commons.plugins.redis;
+package com.cfw.redis;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;

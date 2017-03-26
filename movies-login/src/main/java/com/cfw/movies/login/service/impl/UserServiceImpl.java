@@ -2,10 +2,9 @@ package com.cfw.movies.login.service.impl;
 
 import com.cfw.movies.commons.enums.RedisKeyEnum;
 import com.cfw.movies.commons.model.Users;
-import com.cfw.movies.commons.plugins.redis.CRedis;
-import com.cfw.movies.commons.service.redis.BaseRedisService;
 import com.cfw.movies.login.dao.UsersDao;
 import com.cfw.movies.login.service.UserService;
+import com.cfw.redis.CRedis;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

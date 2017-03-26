@@ -1,5 +1,6 @@
-package com.cfw.movies.commons.controller;
+package com.cfw.movies.security.controller;
 
+import com.cfw.movies.commons.controller.BaseController;
 import com.cfw.movies.commons.enums.ResponseTypeEnum;
 import com.cfw.movies.commons.properties.CommonProperties;
 import com.cfw.movies.commons.security.rsa.RSAKeyPairs;
@@ -21,7 +22,7 @@ import java.util.UUID;
  */
 @Controller
 @RequestMapping("/Security")
-public class SecurityController extends BaseController{
+public class SecurityController extends BaseController {
     private Log logger = LogFactory.getLog(SecurityController.class);
 
     /**

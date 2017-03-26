@@ -6,7 +6,6 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import javax.annotation.Resource;
 
 /**
  * Created by Duskrain on 2017/3/12.
@@ -14,9 +13,6 @@ import javax.annotation.Resource;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = Application.class)
 public class RedisUserServiceImplTest {
-
-    @Resource(name = "redisUserServiceImpl")
-    private RedisUserServiceImpl redisUserService;
 
     @Test
     public void test(){

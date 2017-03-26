@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @time since 2016年3月26日 下午8:49:13
  */
 @Controller
-@RequestMapping(value="/register",method=RequestMethod.POST)
+@RequestMapping(value="/Register",method=RequestMethod.POST)
 public class RegisterController {
 
 	@Autowired
