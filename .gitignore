@@ -3,3 +3,12 @@
 */target/*
 .idea
 /.idea
+*.iml
+/movies-login/*.iml
+/movies-common/*.iml
+/movies-manage/*.iml
+/movies-parent/*.iml
+/movies-register/*.iml
+/movies-security/*.iml
+/movies-spider/*.iml
+/movies-statistic/*.iml
