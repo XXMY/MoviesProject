@@ -46,6 +46,6 @@ public interface UsersDao {
 	 * @author CaiFangwei
 	 * @time since 2017-3-12 18:42:02
 	 */
-	Users selectUserInBrief(String username,String password);
+	Users selectUserInBrief(String username, String password);
 	
 }

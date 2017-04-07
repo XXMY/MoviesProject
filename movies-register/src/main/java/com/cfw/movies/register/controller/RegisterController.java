@@ -1,12 +1,22 @@
 package com.cfw.movies.register.controller;
 
+import com.cfw.movies.commons.controller.BaseController;
+import com.cfw.movies.commons.enums.ResponseTypeEnum;
 import com.cfw.movies.commons.model.Users;
+import com.cfw.movies.commons.vo.MoviesResponse;
+import com.cfw.movies.commons.vo.RsaVO;
 import com.cfw.movies.register.service.UserService;
+import com.cfw.plugins.security.rsa.RSA;
+import com.cfw.plugins.security.rsa.RSAKeyPairs;
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.security.PrivateKey;
 
 /**
  * @author Fangwei_Cai
@@ -14,7 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 @RequestMapping(value="/Register",method=RequestMethod.POST)
-public class RegisterController {
+public class RegisterController extends BaseController{
 
 	@Autowired
 	private UserService userServiceImpl;
@@ -25,13 +35,22 @@ public class RegisterController {
 	 */
 	@RequestMapping(value="/userCheck")
 	@ResponseBody
-	public boolean userCheck(Users user){
+	public MoviesResponse userCheck(String username){
+		MoviesResponse response = new MoviesResponse();
+
+		if(StringUtils.isEmpty(username)){
+			response = buildResponse(ResponseTypeEnum.PARAM_WRONG);
+			return response;
+		}
 		
-		if(user.getUsername() == null) return false;
-		
-		boolean result = userServiceImpl.userExists(user.getUsername());
-		
-		return result;
+		if(!userServiceImpl.userExists(username)){
+			response = buildResponse(ResponseTypeEnum.SUCCESS);
+			return response;
+		}else{
+			response = buildResponse(ResponseTypeEnum.USER_EXISTS);
+			return response;
+		}
+
 	}
 	
 	/**
@@ -40,14 +59,33 @@ public class RegisterController {
 	 */
 	@RequestMapping("/registerUser")
 	@ResponseBody
-	public boolean userRegister(Users user){		
-		if(user.getUsername().isEmpty() || user.getPassword().isEmpty())
-			return false;
+	public MoviesResponse userRegister(RsaVO rsaVO){
+		MoviesResponse response = new MoviesResponse();
+		Users user = null;
+
+		try{
+			String decoded = RSA.decodeBase64String((PrivateKey) RSAKeyPairs.publicPrivateKeys[1].get(rsaVO.getV()),rsaVO.getData());
+			Gson gson = new Gson();
+			user = (Users)gson.fromJson(decoded,Users.class);
+		}catch(Exception e){
+			response = buildResponse(ResponseTypeEnum.SYSTEM_ERROR);
+			return response;
+		}
+
+		if(user.getUsername().isEmpty() || user.getPassword().isEmpty()){
+			response = buildResponse(ResponseTypeEnum.PARAM_WRONG);
+		}
+
 		
-		boolean result = userServiceImpl.register(user);
-		
-		return result;
-		
+		if(userServiceImpl.register(user)){
+			response = buildResponse(ResponseTypeEnum.SUCCESS);
+			return response;
+		}else{
+			response = buildResponse(ResponseTypeEnum.USER_EXISTS);
+
+			return response;
+		}
+
 	}
 	
 }

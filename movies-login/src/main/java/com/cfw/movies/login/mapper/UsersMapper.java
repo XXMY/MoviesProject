@@ -1,7 +1,7 @@
 package com.cfw.movies.login.mapper;
 
-import com.cfw.movies.commons.mapper.BaseMapper;
 import com.cfw.movies.commons.model.Users;
+import com.cfw.plugins.database.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

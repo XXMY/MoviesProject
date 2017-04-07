@@ -3,11 +3,11 @@ package com.cfw.movies.login.controller;
 import com.cfw.movies.commons.controller.BaseController;
 import com.cfw.movies.commons.enums.ResponseTypeEnum;
 import com.cfw.movies.commons.model.Users;
-import com.cfw.movies.commons.security.rsa.RSA;
-import com.cfw.movies.commons.security.rsa.RSAKeyPairs;
-import com.cfw.movies.commons.vo.HttpResponse;
+import com.cfw.movies.commons.vo.MoviesResponse;
 import com.cfw.movies.commons.vo.RsaVO;
 import com.cfw.movies.login.service.UserService;
+import com.cfw.plugins.security.rsa.RSA;
+import com.cfw.plugins.security.rsa.RSAKeyPairs;
 import com.google.gson.Gson;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,14 +38,14 @@ public class LoginController extends BaseController {
 	 */
 	@RequestMapping(value="/logined",method=RequestMethod.GET)
 	@ResponseBody
-	public HttpResponse logined(HttpSession session){
-		HttpResponse result = new HttpResponse();
+	public MoviesResponse logined(HttpSession session){
+		MoviesResponse result = new MoviesResponse();
 		// Get the information from cache.
 		Users user = this.userService.checkLogined(session.getId());
 		if(user == null){
-			result = buildHttpResponse(ResponseTypeEnum.USER_NOT_LOGINED);
+			result = buildResponse(ResponseTypeEnum.USER_NOT_LOGINED);
 		}else{
-			result = buildHttpResponse(ResponseTypeEnum.USER_LOGINED);
+			result = buildResponse(ResponseTypeEnum.USER_LOGINED);
 			result.setData(user);
 		}
 
@@ -61,12 +61,12 @@ public class LoginController extends BaseController {
 	 */
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	@ResponseBody
-	public HttpResponse login(HttpSession session, RsaVO rsaVO){
-		HttpResponse result = new HttpResponse();
+	public MoviesResponse login(HttpSession session, RsaVO rsaVO){
+		MoviesResponse result = new MoviesResponse();
 		Users user = null;
 
 		try{
-			String decoded = RSA.decodeBase64String((PrivateKey)RSAKeyPairs.publicPrivateKeys[1].get(rsaVO.getV()),rsaVO.getData());
+			String decoded = RSA.decodeBase64String((PrivateKey) RSAKeyPairs.publicPrivateKeys[1].get(rsaVO.getV()),rsaVO.getData());
 			Gson gson = new Gson();
 			user = (Users)gson.fromJson(decoded,Users.class);
 			user = userService.userLogin(session.getId(),user.getUsername(),user.getPassword());
@@ -75,9 +75,9 @@ public class LoginController extends BaseController {
 		}
 
 		if(user != null){
-			result = buildHttpResponse(ResponseTypeEnum.SUCCESS);
+			result = buildResponse(ResponseTypeEnum.SUCCESS);
 		}else{
-			result = buildHttpResponse(ResponseTypeEnum.USER_NOT_EXISTS);
+			result = buildResponse(ResponseTypeEnum.USER_NOT_EXISTS);
 		}
 		
 		
@@ -92,9 +92,9 @@ public class LoginController extends BaseController {
 	 */
 	@RequestMapping("/logout")
 	@ResponseBody
-	public HttpResponse userLogout(HttpSession session){
+	public MoviesResponse userLogout(HttpSession session){
 		session.invalidate();
 		
-		return buildHttpResponse(ResponseTypeEnum.SUCCESS);
+		return buildResponse(ResponseTypeEnum.SUCCESS);
 	}
 }

@@ -19,7 +19,7 @@ public interface UserService {
 	 * @author CaiFangwei
 	 * @time since 2017-3-12 16:31:58
 	 */
-	Users userLogin(String sessionId,String username, String password);
+	Users userLogin(String sessionId, String username, String password);
 
 	/**
 	 * Check whether user logined.</br>
@@ -46,7 +46,7 @@ public interface UserService {
 	 * @author CaiFangwei
 	 * @time since 2017-3-12 16:34:17
 	 */
-	Users getBriefInfo(String username,String password);
+	Users getBriefInfo(String username, String password);
 	
 	/**
 	 * The value of username attribute cannot empty.

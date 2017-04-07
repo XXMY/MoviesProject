@@ -1,8 +1,10 @@
 package com.cfw.movies.register.mapper;
 
-import com.cfw.movies.commons.mapper.BaseMapper;
 import com.cfw.movies.commons.model.Users;
+import com.cfw.plugins.database.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -19,5 +21,6 @@ public interface UsersMapper extends BaseMapper<Users> {
 	 * @param username
 	 * @return
 	 */
-	Users selectUserByName(String username);
+	@Select("SELECT id FROM users WHERE username = #{username}")
+	Users selectUserByName(@Param("username") String username);
 }
