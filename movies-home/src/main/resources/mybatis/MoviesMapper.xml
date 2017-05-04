@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 指定的是映射接口的完整路劲名 -->
+<mapper namespace="com.cfw.movies.home.mapper.MoviesMapper">
+	<!-- Insert a movie must with its full information. -->
+	<insert id="insertOne" parameterType="Movies">
+		INSERT INTO 
+			movies(
+				name,
+				type,
+				record_time,
+				did,
+				pic,
+				score,
+				isdeleted
+			) 
+		VALUES(
+			#{name},
+			#{type},
+			NOW(),
+			#{description.id},
+			#{pic},
+			#{score},
+			#{isdeleted}
+		)
+	</insert>
+	
+	<select id="selectMovies" parameterType="Map" resultType="Movies">
+		SELECT
+			id,
+			name,
+			type,
+			pic,
+			score
+		FROM
+			movies
+		<where>
+			movies.isdeleted = 0
+			<if test="keyword != null || keyword != ''">
+				<!-- For movie search through movie's name -->
+				AND movies.name like CONCAT('%','${keyword}','%' ) 
+			</if>
+		</where>
+		<choose>
+			<when test="start != null and length != null">
+				LIMIT #{start},#{length}
+			</when>
+			<otherwise>
+				LIMIT 0,20
+			</otherwise>
+		</choose>
+	</select>
+	
+	<!-- 2016.04.24 19:04 -->
+	<resultMap type="Movies" id="fullMovieMap">
+		<constructor>
+			<idArg column="id" javaType="Long"/>
+			<arg column="name" javaType="String"/>
+			<arg column="type" javaType="String"/>
+			<arg column="pic" javaType="String"/> 
+			<arg column="score" javaType="Float"/>
+		</constructor>
+		<association property="description" javaType="Descriptions">
+			<id property="id" column="did"/>
+			<result property="abstract_" column="abstract_"/>
+			<result property="description" column="description"/>
+		</association>
+	</resultMap>
+	<select id="selectFullMovies" parameterType="Map" resultMap="fullMovieMap">
+		SELECT
+			m.id,
+			m.name,
+			m.type,
+			m.pic,
+			m.score,
+			d.id as did,
+			d.abstract_,
+			d.description
+		FROM
+			movies m,
+			descriptions d
+		<where>
+			<choose>
+				<when test="keyword != null || keyword != ''">
+					<!-- For movie search through movie's name -->
+						m.name like CONCAT('%','${keyword}','%' ) 
+					AND
+						d.id = m.did
+				</when>
+				<otherwise>
+					d.id = m.id
+				</otherwise>
+			</choose>
+		AND
+			m.isdeleted=0
+		AND 
+			d.isdeleted=0
+		</where>
+		<choose>
+			<when test="start != null and length != null">
+				LIMIT #{start},#{length}
+			</when>
+			<otherwise>
+				LIMIT 0,20
+			</otherwise>
+		</choose>
+	</select>
+	
+	<!-- 2016.05.07 00:21 -->
+	<select id="selectOne" parameterType="Long" resultMap="fullMovieMap">
+		SELECT
+			m.id,
+			m.name,
+			m.type,
+			m.pic,
+			m.score,
+			d.id as did,
+			d.abstract_,
+			d.description
+		FROM
+			movies m,
+			descriptions d
+		WHERE
+			m.id = #{id}
+		AND
+			d.id = m.did
+		AND
+			m.isdeleted=0
+		AND 
+			d.isdeleted=0	
+	</select>
+	
+	<!-- 2016.04.24 21:54 -->
+	<select id="selectCount" resultType="Long">
+		SELECT
+			count(id)
+		FROM 
+			movies
+	</select>
+	
+	<!-- 2016.05.08 14:58 -->
+	<select id="selectPic" parameterType="Map" resultType="Movies">
+		SELECT
+			id,
+			pic
+		FROM
+			movies
+		LIMIT #{start},#{length}
+	</select>
+	
+	<!-- 2016.05.08 15:01 -->
+	<update id="updatePic" parameterType="Map">
+		UPDATE
+			movies
+		SET
+			pic = #{pic}
+		WHERE
+			id = #{id}
+	</update>
+	
+	<!-- 2016.05.08 21:52 -->
+	<update id="updateOne" parameterType="Movies">
+		UPDATE
+			movies
+		SET
+			isdeleted = #{isdeleted}
+			<if test="name != null and name != ''">,name = #{name}</if>
+			<if test="type != null and type != ''">,type = #{type}</if>
+			<if test="pic != null and pic !=''">,pic = #{pic}</if>
+			<if test="description.id != null">,did = #{description.id}</if>
+			<if test="score > 0">,score = #{score}</if>
+		WHERE
+			id = #{id}
+	</update>
+	
+	<!-- 2016.05.31 19:43 -->
+	<resultMap type="Movies" id="recommendMovieMap">
+		<constructor>
+			<idArg column="id" javaType="Long"/>
+			<arg column="name" javaType="String"/>
+			<arg column="score" javaType="Float"/>
+		</constructor>
+		<association property="description" javaType="Descriptions">
+			<id property="id" column="did"/>
+			<result property="abstract_" column="abstract_"/>
+		</association>
+	</resultMap>
+	<select id="selectRecommendedMovies" parameterType="Users" resultMap="recommendMovieMap">
+		SELECT
+			m.id as id,
+			m.name as name,
+			m.score as score,
+			d.id as did,
+			d.abstract_ as abstract_
+		FROM
+			movies m,
+			descriptions d
+		<where>
+				m.id 
+			IN (
+				SELECT 
+					mid
+				FROM
+					recommends
+				WHERE
+					uid = #{id}
+			)
+			AND 
+				m.isdeleted = 0
+		</where>
+	</select>
+	
+	<!-- 2016.05.31 19:59 -->
+	<select id="selectTopScoreMoviesToRecommend" resultMap="recommendMovieMap">
+		SELECT
+			m.id as id,
+			m.name as name,
+			m.score as score,
+			d.id as did,
+			d.abstract_ as abstract_
+		FROM
+			movies m,
+			descriptions d
+		<where>
+				m.did = d.id
+			AND
+				m.isdeleted = 0
+		</where>
+		ORDER BY
+			m.score
+		DESC
+		LIMIT 5;
+			
+	</select>
+	
+	<!-- 2016.06.01 17:11 -->
+	<select id="selectDesciptionId" parameterType="Long" resultType="Long">
+		SELECT
+			did
+		FROM 
+			movies
+		WHERE
+			id = #{id}
+	</select>
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfw.movies.home.mapper.TypesMapper">
+	<select id="selectAll" resultType="Types">
+		SELECT 
+			id,type_name
+		FROM 
+			types
+	</select>
+	
+	<insert id="insertOne" parameterType="Types">
+		<selectKey keyProperty="id" order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		INSERT INTO
+			types (
+				type_name
+			)
+		VALUES (
+			#{type_name}
+		)
+	</insert>
+</mapper>

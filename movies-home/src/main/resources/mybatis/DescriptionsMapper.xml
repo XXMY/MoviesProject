@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 指定的是映射接口的完整路劲名 -->
+<mapper namespace="com.cfw.movies.home.mapper.DescriptionsMapper">
+	
+	<!-- Insert a abstract must with its full information. -->
+	<insert id="insertOne" parameterType="Descriptions">
+		<selectKey keyProperty="id" order="AFTER"  resultType="Long">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		INSERT INTO 
+			descriptions(
+				abstract_,
+				description,
+				isdeleted
+			) 
+		VALUES(
+			#{abstract_},
+			#{description},
+			#{isdeleted}
+		)
+	</insert>
+	
+	<!-- 2016.06.01 16:41 -->
+	<update id="updateOne" parameterType="Descriptions">
+		UPDATE
+			descriptions
+		<set>
+			isdeleted = #{isdeleted}
+			<if test="abstract_ != '' and abstract_ != null">
+				,abstract_ = #{abstract_}
+			</if>
+			<if test="description != '' and description != null">
+				,description = #{description}
+			</if>
+		</set>
+		<where>
+			id = #{id}
+		</where>
+	</update>
+	
+</mapper>

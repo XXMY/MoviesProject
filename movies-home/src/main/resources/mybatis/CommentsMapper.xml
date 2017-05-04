@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 指定的是映射接口的完整路劲名 -->
+<mapper namespace="com.cfw.movies.home.mapper.CommentsMapper">
+	<!-- Insert a movie must with its full information. -->
+	<insert id="insertOne" parameterType="Comments">
+		INSERT INTO 
+			comments(
+				comment,
+				score,
+				uid,
+				mid,
+				create_time
+			) 
+		VALUES(
+			#{comment},
+			#{score},
+			#{user.id},
+			#{mid},
+			NOW()
+		)
+	</insert>
+	
+	<!-- 2016.05.07 10:36 -->
+	<resultMap type="Comments" id="commentMap">
+		<constructor>
+			<idArg column="id" javaType="Long"/>
+			<arg column="comment" javaType="String"/>
+			<arg column="score" javaType="Float"/>
+			<arg column="mid" javaType="Long"/>
+			<arg column="create_time" javaType="Date"/>
+			<arg column="like" javaType="Integer"/>
+		</constructor>
+		<association property="user" javaType="Users">
+			<result property="username" column="username"/>
+			<result property="head_pic" column="head_pic"/>
+		</association>
+	</resultMap>
+	<select id="selectComments" parameterType="Long" resultMap="commentMap">
+		SELECT
+			c.id,
+			c.comment,
+			c.score,
+			c.mid,
+			c.create_time,
+			c.like,
+			u.username,
+			u.head_pic
+		FROM 
+			comments c,
+			users u
+		<where>
+			c.mid = #{id}
+		AND
+			u.id = c.uid
+		</where>
+	</select>
+	
+</mapper>
