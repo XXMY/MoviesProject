@@ -29,16 +29,7 @@ public class MovieServiceImpl implements MovieService {
 	
 	@Autowired
 	private AbstractsDao abstractsDaoImpl;
-	
-	@Autowired
-	private CommentsDao commentsDaoImpl;
-	
-	@Autowired
-	private UsersDao usersDaoImpl;
-	
-	@Autowired
-	private RecommendsDao recommendsDao;
-	
+
 	/**
 	 * @author Fangwei_Cai
 	 * @time since 2016年4月8日 下午4:35:57
@@ -165,33 +156,6 @@ public class MovieServiceImpl implements MovieService {
 	/**
 	 * (non-Javadoc)
 	 * @author Fangwei_Cai
-	 * @time since 2016年5月1日 上午11:49:06
-	 */
-	@Override
-	public boolean addComment(MovieComment mComment) throws Exception {
-		Comments comment = new Comments();
-
-		Users user = usersDaoImpl.selectUserInBrief(mComment.getUsername());
-		
-		if(user == null) return false;
-		
-		comment.setUser(user);
-		comment.setComment(mComment.getComment());
-		comment.setMid(mComment.getMid());
-		comment.setScore(mComment.getScore());
-		
-		int insertCommentResult = commentsDaoImpl.insertComment(comment);
-		
-		if(insertCommentResult > 0)
-			//throw new RuntimeException("Add comment transaction test");
-			return true;
-		
-		return false;
-	}
-
-	/**
-	 * (non-Javadoc)
-	 * @author Fangwei_Cai
 	 * @time since 2016年5月7日 上午12:28:07
 	 */
 	@Override
@@ -202,26 +166,6 @@ public class MovieServiceImpl implements MovieService {
 			return movie;
 		}catch (Exception e){
 			System.out.println("getOneMovie exception");
-			e.printStackTrace();
-		}
-
-		return null;
-	}
-
-	/**
-	 * @author Fangwei_Cai
-	 * @time since 2016年5月7日 上午11:03:36
-	 * @param mid
-	 * @return
-	 */
-	@Override
-	public List<Comments> getCommentsOfMovie(int mid) {
-		try{
-			List<Comments> comments = this.commentsDaoImpl.selectCommentsOfMovie(mid);
-
-			return comments;
-		}catch(Exception e){
-			System.out.println("getCommentsOfMovie exception");
 			e.printStackTrace();
 		}
 
@@ -283,30 +227,6 @@ public class MovieServiceImpl implements MovieService {
 		return true;
 	}
 
-	/**
-	 * (non-Javadoc)
-	 * @author Fangwei_Cai
-	 * @time since 2016年5月31日 下午7:47:48
-	 */
-	@Override
-	public List<Movies> getRecommendMovies(Users user) {
-		List<Movies> recommendMovies = null;
-		// While user is not logined.
-		if(user == null){
-			recommendMovies = this.moviesDaoImpl.selectTopScoreMoviesToRecommend();
-			
-			return recommendMovies;
-		}
-		
-		int recommendCount = this.recommendsDao.selectRecommendedMoviesCount(user);
-		if(recommendCount>0)
-			recommendMovies = this.moviesDaoImpl.selectRecommendedMovies(user);
-		else
-			recommendMovies = this.moviesDaoImpl.selectTopScoreMoviesToRecommend();
-			
-		
-		return recommendMovies;
-	}
 
 	/**
 	 * (non-Javadoc)

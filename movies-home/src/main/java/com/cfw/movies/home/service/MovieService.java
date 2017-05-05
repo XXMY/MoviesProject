@@ -72,30 +72,12 @@ public interface MovieService {
 	int countMovies();
 
 	/**
-	 * Add a new comment.
-	 * @author Fangwei_Cai
-	 * @time since 2016年5月1日 上午11:48:13
-	 * @param mComment
-	 * @return
-	 */
-	boolean addComment(MovieComment mComment) throws Exception;
-
-	/**
 	 * @author Fangwei_Cai
 	 * @time since 2016年5月7日 上午12:27:18
 	 * @param id
 	 * @return
 	 */
 	Movies getOneMovie(int id);
-
-	/**
-	 *
-	 * @author Fangwei_Cai
-	 * @time since 2016年5月7日 上午11:08:55
-	 * @param mid
-	 * @return
-	 */
-	List<Comments> getCommentsOfMovie(int mid);
 
 	/**
 	 * @author Fangwei_Cai
@@ -120,14 +102,6 @@ public interface MovieService {
 	 * @return
 	 */
 	boolean deleteMovie(int... mids);
-	
-	/**
-	 * @author Fangwei_Cai
-	 * @time since 2016年5月31日 下午7:47:25
-	 * @param user
-	 * @return
-	 */
-	List<Movies> getRecommendMovies(Users user);
 	
 	/**
 	 * @author Fangwei_Cai

@@ -12,6 +12,7 @@ import com.cfw.movies.commons.model.Users;
 import com.cfw.movies.commons.utils.CodeHelper;
 import com.cfw.movies.commons.vo.MoviesResponse;
 import com.cfw.movies.home.service.MovieService;
+import com.cfw.movies.home.service.remote.RemoteCommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,6 +35,9 @@ public class HomeController extends BaseController {
 
 	@Autowired
 	private MovieService movieService;
+
+	@Autowired
+	private RemoteCommentService commentService;
 	
 	/**
 	 * Get the movies as list.
@@ -85,39 +89,6 @@ public class HomeController extends BaseController {
 	
 	/**
 	 * @author Fangwei_Cai
-	 * @time since 2016年5月1日 下午2:46:09
-	 * @param movieComment
-	 * @return
-	 */
-	@RequestMapping(value="/comment",method=RequestMethod.POST)
-	@ResponseBody
-	public MoviesResponse movieComment(MovieComment movieComment){
-		MoviesResponse response = new MoviesResponse();
-		if(CodeHelper.isNullOrEmpty(movieComment.getComment()) || CodeHelper.isNull(movieComment.getMid()) || CodeHelper.isNullOrEmpty(movieComment.getUsername())){
-			response = buildResponse(ResponseTypeEnum.PARAM_WRONG);
-		}
-
-		boolean addCommentResult = false;
-		try {
-			addCommentResult = movieService.addComment(movieComment);
-
-			if(addCommentResult){
-				response = buildResponse(ResponseTypeEnum.SUCCESS);
-				return response;
-			}else{
-				response = buildResponse(ResponseTypeEnum.FAILED);
-				return response;
-			}
-
-		} catch (Exception e) {
-			response = buildResponse(ResponseTypeEnum.SYSTEM_ERROR);
-
-			return response;
-		}
-	}
-	
-	/**
-	 * @author Fangwei_Cai
 	 * @time since 2016年5月7日 上午12:37:39
 	 * @param id
 	 * @return
@@ -139,7 +110,7 @@ public class HomeController extends BaseController {
 				return response;
 			}
 
-			List<Comments> comments = this.movieService.getCommentsOfMovie(id);
+			List<Comments> comments = null;//this.movieService.getCommentsOfMovie(id);
 
 			MovieDetails movieDetails = new MovieDetails(movie, comments);
 
@@ -195,9 +166,9 @@ public class HomeController extends BaseController {
 				int userId = (int) map.get("id");
 				Users user = new Users();
 				user.setId(userId);
-				recommendMovies = this.movieService.getRecommendMovies(user);
+				recommendMovies = null; //this.movieService.getRecommendMovies(user);
 			}else{
-				recommendMovies = this.movieService.getRecommendMovies(null);
+				recommendMovies = null; //this.movieService.getRecommendMovies(null);
 			}
 
 			response = buildResponse(ResponseTypeEnum.SUCCESS);

@@ -1,4 +1,4 @@
-package com.cfw.movies.home.mapper;
+package com.cfw.movies.comment.mapper;
 
 import com.cfw.movies.commons.model.Comments;
 import com.cfw.plugins.database.mapper.BaseMapper;
@@ -22,5 +22,5 @@ public interface CommentsMapper extends BaseMapper<Comments> {
 	 * @param mid {Long} movie id.
 	 * @return
 	 */
-	List<Comments> selectComments(Long mid);
+	List<Comments>selectComments(Long mid);
 }

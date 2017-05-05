@@ -39,7 +39,7 @@ public interface MoviesMapper extends BaseMapper<Movies> {
 	 * @time since 2016年4月24日 下午9:53:52
 	 * @return
 	 */
-	Long selectCount();
+	Integer selectCount();
 
 	/**
 	 * Delete movies specified by id array.
@@ -88,5 +88,5 @@ public interface MoviesMapper extends BaseMapper<Movies> {
 	 * @param mid
 	 * @return
 	 */
-	Long selectDesciptionId(int mid);
+	Integer selectDesciptionId(int mid);
 }

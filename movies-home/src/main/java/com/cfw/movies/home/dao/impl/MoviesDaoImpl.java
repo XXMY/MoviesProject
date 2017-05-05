@@ -86,9 +86,8 @@ public class MoviesDaoImpl implements MoviesDao {
 	 * @time since 2016年4月24日 下午9:56:40
 	 */
 	@Override
-	public Long selectCount() {
-		Long count = this.moviesMapper.selectCount();
-		return count;
+	public Integer selectCount() {
+		return this.moviesMapper.selectCount();
 	}
 
 	/**
@@ -116,8 +115,8 @@ public class MoviesDaoImpl implements MoviesDao {
 	}
 
 	@Override
-	public List<Movies> selectPic(Long start, int length) {
-		if(start == null || start < 0 || length < 0) return null;
+	public List<Movies> selectPic(int start, int length) {
+		if( start < 0 || length < 0) return null;
 		Map<String,Object> map = new HashMap<>();
 		map.put("start",start);
 		map.put("length",length);
@@ -179,9 +178,8 @@ public class MoviesDaoImpl implements MoviesDao {
 	 * @time since 2016年6月1日 下午5:13:29
 	 */
 	@Override
-	public Long selectDesciptionId(int mid) {
-		Long result = this.moviesMapper.selectDesciptionId(mid);
-		return result;
+	public Integer selectDesciptionId(int mid) {
+		return this.moviesMapper.selectDesciptionId(mid);
 	}
 	
 	

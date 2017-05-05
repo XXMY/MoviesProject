@@ -43,7 +43,7 @@ public interface MoviesDao {
 	 * @time since 2016年4月24日 下午9:56:23
 	 * @return
 	 */
-	int selectCount();
+	Integer selectCount();
 
 	/**
 	 * @author Fangwei_Cai
@@ -78,7 +78,7 @@ public interface MoviesDao {
 	 * @return
 	 */
 	int updateMovie(Movies movie);
-	
+
 	/**
 	 * @author Fangwei_Cai
 	 * @time since 2016年5月31日 下午6:58:16
@@ -101,6 +101,6 @@ public interface MoviesDao {
 	 * @param mid
 	 * @return
 	 */
-	int selectDesciptionId(int mid);
+	Integer selectDesciptionId(int mid);
 	
 }

@@ -1,5 +1,6 @@
 package com.cfw.movies.commons.model;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -7,8 +8,9 @@ import java.util.Date;
  * @author Fangwei_Cai
  * @time since 2016年3月4日 下午10:03:50
  */
-public class Comments {
-	
+public class Comments implements Serializable{
+
+	private static final long serialVersionUID = 6791938201881473975L;
 	private Long id;
 	
 	private String comment;
