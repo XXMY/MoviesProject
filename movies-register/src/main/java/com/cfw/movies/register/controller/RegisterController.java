@@ -2,7 +2,7 @@ package com.cfw.movies.register.controller;
 
 import com.cfw.movies.commons.controller.BaseController;
 import com.cfw.movies.commons.enums.ResponseTypeEnum;
-import com.cfw.movies.commons.model.Users;
+import com.cfw.movies.commons.model.User;
 import com.cfw.movies.commons.vo.MoviesResponse;
 import com.cfw.movies.commons.vo.RsaVO;
 import com.cfw.movies.register.service.UserService;
@@ -61,12 +61,12 @@ public class RegisterController extends BaseController{
 	@ResponseBody
 	public MoviesResponse userRegister(RsaVO rsaVO){
 		MoviesResponse response = new MoviesResponse();
-		Users user = null;
+		User user = null;
 
 		try{
 			String decoded = RSA.decodeBase64String((PrivateKey) RSAKeyPairs.publicPrivateKeys[1].get(rsaVO.getV()),rsaVO.getData());
 			Gson gson = new Gson();
-			user = (Users)gson.fromJson(decoded,Users.class);
+			user = (User)gson.fromJson(decoded,User.class);
 		}catch(Exception e){
 			response = buildResponse(ResponseTypeEnum.SYSTEM_ERROR);
 			return response;

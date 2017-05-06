@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfw.movies.recommend.mapper.RecommendMapper">
+	
+	<!-- 2016.05.29 11:27 -->
+	<insert id="insertOne" parameterType="Recommend">
+		INSERT INTO
+			recommends(
+				uid,mid,pref
+			)
+		VALUES(
+			#{uid},#{mid},#{pref}
+		)
+	</insert>
+	
+	<!-- 2015.05.31 19:03 -->
+	<select id="selectRecommendedMoviesCount" parameterType="User" resultType="Integer">
+		SELECT 
+			count(id)
+		FROM
+			recommends
+		WHERE
+			uid = #{id}
+	</select>
+
+	<!-- 2016.05.31 19:43 -->
+	<resultMap type="Movie" id="recommendMovieMap">
+		<constructor>
+			<idArg column="id" javaType="Long"/>
+			<arg column="name" javaType="String"/>
+			<arg column="score" javaType="Float"/>
+		</constructor>
+		<association property="description" javaType="Description">
+			<id property="id" column="did"/>
+			<result property="abstract_" column="abstract_"/>
+		</association>
+	</resultMap>
+	<select id="selectRecommendedMovies" parameterType="Integer" resultMap="recommendMovieMap">
+		SELECT
+		m.id as id,
+		m.name as name,
+		m.score as score,
+		d.id as did,
+		d.abstract_ as abstract_
+		FROM
+		movies m,
+		descriptions d
+		<where>
+			m.id
+			IN (
+			SELECT
+			mid
+			FROM
+			recommends
+			WHERE
+			uid = #{userId}
+			)
+			AND
+			m.isdeleted = 0
+		</where>
+	</select>
+
+	<!-- 2016.05.31 19:59 -->
+	<select id="selectTopScoreMoviesToRecommend" resultMap="recommendMovieMap">
+		SELECT
+		m.id as id,
+		m.name as name,
+		m.score as score,
+		d.id as did,
+		d.abstract_ as abstract_
+		FROM
+		movies m,
+		descriptions d
+		<where>
+			m.did = d.id
+			AND
+			m.isdeleted = 0
+		</where>
+		ORDER BY
+		m.score
+		DESC
+		LIMIT 5;
+
+	</select>
+
+</mapper>

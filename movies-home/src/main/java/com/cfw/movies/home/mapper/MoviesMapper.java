@@ -1,7 +1,7 @@
 package com.cfw.movies.home.mapper;
 
-import com.cfw.movies.commons.model.Movies;
-import com.cfw.movies.commons.model.Users;
+import com.cfw.movies.commons.model.Movie;
+import com.cfw.movies.commons.model.User;
 import com.cfw.plugins.database.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
@@ -15,14 +15,14 @@ import java.util.Map;
  */
 @Repository("moviesMapper")
 @Mapper
-public interface MoviesMapper extends BaseMapper<Movies> {
+public interface MoviesMapper extends BaseMapper<Movie> {
 	
 	/**
 	 * Select movies in list, can be paged.
 	 * @param map
 	 * @return
 	 */
-	List<Movies> selectMovies(Map<String, Object> map);
+	List<Movie> selectMovies(Map<String, Object> map);
 
 	/**
 	 * Select movies with full informations.
@@ -31,7 +31,7 @@ public interface MoviesMapper extends BaseMapper<Movies> {
 	 * @param map
 	 * @return
 	 */
-	List<Movies> selectFullMovies(Map<String, Object> map);
+	List<Movie> selectFullMovies(Map<String, Object> map);
 
 	/**
 	 * Select the count of movies.
@@ -56,7 +56,7 @@ public interface MoviesMapper extends BaseMapper<Movies> {
 	 * @param map
 	 * @return
 	 */
-	List<Movies> selectPic(Map<String, Object> map);
+	List<Movie> selectPic(Map<String, Object> map);
 
 	/**
 	 * @author Fangwei_Cai
@@ -72,7 +72,7 @@ public interface MoviesMapper extends BaseMapper<Movies> {
 	 * @param user
 	 * @return
 	 */
-	List<Movies> selectRecommendedMovies(Users user);
+	List<Movie> selectRecommendedMovies(User user);
 	
 	/**
 	 * Select five movies which score is in top list. 
@@ -80,7 +80,7 @@ public interface MoviesMapper extends BaseMapper<Movies> {
 	 * @time since 2016年5月31日 下午7:51:40
 	 * @return
 	 */
-	List<Movies> selectTopScoreMoviesToRecommend();
+	List<Movie> selectTopScoreMoviesToRecommend();
 	
 	/**
 	 * @author Fangwei_Cai

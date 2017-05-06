@@ -1,7 +1,6 @@
 package com.cfw.movies.comment.service;
 
-import com.cfw.movies.commons.dto.MovieComment;
-import com.cfw.movies.commons.model.Comments;
+import com.cfw.movies.commons.model.Comment;
 
 import java.util.List;
 
@@ -24,5 +23,5 @@ public interface CommentService {
      * @param movieId
      * @return
      */
-    List<Comments> getCommentsOfMovie(Integer movieId);
+    List<Comment> getCommentsOfMovie(Integer movieId);
 }

@@ -1,7 +1,7 @@
 package com.cfw.movies.home.dao;
 
 
-import com.cfw.movies.commons.model.Users;
+import com.cfw.movies.commons.model.User;
 
 /**
  * Operation interface of users' data.
@@ -22,13 +22,13 @@ public interface UsersDao {
 	 * @author Fangwei_Cai
 	 * @time since 2016年3月26日 下午8:10:47
 	 */
-	int updateUser(Users user); 
+	int updateUser(User user);
 	
 	/**
 	 * @author Fangwei_Cai
 	 * @time since 2016年3月27日 上午10:07:00
 	 */
-	int addUser(Users user);
+	int addUser(User user);
 	
 	/**
 	 * @author Fangwei_Cai
@@ -36,7 +36,7 @@ public interface UsersDao {
 	 * @param username
 	 * @return
 	 */
-	Users selectUserInBrief(String username);
+	User selectUserInBrief(String username);
 
 	/**
 	 *
@@ -46,6 +46,6 @@ public interface UsersDao {
 	 * @author CaiFangwei
 	 * @time since 2017-3-12 18:42:02
 	 */
-	Users selectUserInBrief(String username, String password);
+	User selectUserInBrief(String username, String password);
 	
 }

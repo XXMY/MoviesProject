@@ -1,7 +1,6 @@
 package com.cfw.movies.home.service;
 
 
-import com.cfw.movies.commons.dto.MovieComment;
 import com.cfw.movies.commons.dto.Page;
 import com.cfw.movies.commons.model.*;
 
@@ -18,25 +17,25 @@ public interface MovieService {
 	 * @author Fangwei_Cai
 	 * @time since 2016年4月2日 下午5:54:52
 	 */
-	List<Types> getAllTypes();
+	List<Type> getAllTypes();
 	
 	/**
 	 * @author Fangwei_Cai
 	 * @time since 2016年4月11日 上午11:44:22
 	 */
-	boolean addType(Types type);
+	boolean addType(Type type);
 	
 	/**
 	 * @author Fangwei_Cai
 	 * @time since 2016年4月8日 下午4:35:24
 	 */
-	boolean addMovie(Movies movies);
+	boolean addMovie(Movie movies);
 	
 	/**
 	 * @author Fangwei_Cai
 	 * @time since 2016年4月8日 下午4:44:47
 	 */
-	boolean addDescription(Descriptions abstracts);
+	boolean addDescription(Description abstracts);
 	
 	/**
 	 * <b>Get movies in list.</b><p>
@@ -61,7 +60,7 @@ public interface MovieService {
 	 * 
 	 * @return
 	 */
-	List<Movies> getMovies(Page page, int flag);
+	List<Movie> getMovies(Page page, int flag);
 
 	/**
 	 * Count the number of movies.
@@ -77,7 +76,7 @@ public interface MovieService {
 	 * @param id
 	 * @return
 	 */
-	Movies getOneMovie(int id);
+	Movie getOneMovie(int id);
 
 	/**
 	 * @author Fangwei_Cai
@@ -85,7 +84,7 @@ public interface MovieService {
 	 * @param map
 	 * @return
 	 */
-	List<Movies> findPic(Map<String, Object> map);
+	List<Movie> findPic(Map<String, Object> map);
 
 	/**
 	 * @author Fangwei_Cai
@@ -109,5 +108,5 @@ public interface MovieService {
 	 * @param movie
 	 * @return
 	 */
-	boolean modifyMoive(Movies movie);
+	boolean modifyMoive(Movie movie);
 }

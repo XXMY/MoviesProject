@@ -1,18 +1,16 @@
 package com.cfw.movies.home.controller;
 
+import com.cfw.movies.comment.service.CommentService;
 import com.cfw.movies.commons.controller.BaseController;
-import com.cfw.movies.commons.dto.MovieComment;
 import com.cfw.movies.commons.dto.MovieDetails;
 import com.cfw.movies.commons.dto.Page;
 import com.cfw.movies.commons.enums.ResponseTypeEnum;
-import com.cfw.movies.commons.model.Comments;
-import com.cfw.movies.commons.model.Movies;
-import com.cfw.movies.commons.model.Types;
-import com.cfw.movies.commons.model.Users;
-import com.cfw.movies.commons.utils.CodeHelper;
+import com.cfw.movies.commons.model.Comment;
+import com.cfw.movies.commons.model.Movie;
+import com.cfw.movies.commons.model.Type;
+import com.cfw.movies.commons.model.User;
 import com.cfw.movies.commons.vo.MoviesResponse;
 import com.cfw.movies.home.service.MovieService;
-import com.cfw.movies.home.service.remote.RemoteCommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
@@ -36,8 +35,8 @@ public class HomeController extends BaseController {
 	@Autowired
 	private MovieService movieService;
 
-	@Autowired
-	private RemoteCommentService commentService;
+	@Resource(name = "commentService")
+	private CommentService commentService;
 	
 	/**
 	 * Get the movies as list.
@@ -51,7 +50,7 @@ public class HomeController extends BaseController {
 	public MoviesResponse movieGet(Page page, @RequestParam(defaultValue="1")int flag){
 		MoviesResponse response = null;
 		
-		List<Movies> movies = null;
+		List<Movie> movies = null;
 		
 		try{
 			movies = movieService.getMovies(page,flag);
@@ -95,7 +94,7 @@ public class HomeController extends BaseController {
 	 */
 	@RequestMapping("/one")
 	@ResponseBody
-	public MoviesResponse getOneMovie(int id){
+	public MoviesResponse getOneMovie(Integer id){
 		MoviesResponse response = new MoviesResponse();
 		
 		if(id <= 0){
@@ -104,13 +103,13 @@ public class HomeController extends BaseController {
 		}
 		
 		try{
-			Movies movie = this.movieService.getOneMovie(id);
+			Movie movie = this.movieService.getOneMovie(id);
 			if(movie == null){
 				response = buildResponse(ResponseTypeEnum.FAILED);
 				return response;
 			}
 
-			List<Comments> comments = null;//this.movieService.getCommentsOfMovie(id);
+			List<Comment> comments = this.commentService.getCommentsOfMovie(id);
 
 			MovieDetails movieDetails = new MovieDetails(movie, comments);
 
@@ -136,7 +135,7 @@ public class HomeController extends BaseController {
 		MoviesResponse response = new MoviesResponse();
 
 		try{
-			List<Types> movieTypes = this.movieService.getAllTypes();
+			List<Type> movieTypes = this.movieService.getAllTypes();
 			response = buildResponse(ResponseTypeEnum.SUCCESS);
 			response.setData(movieTypes);
 
@@ -147,38 +146,6 @@ public class HomeController extends BaseController {
 			return response;
 		}
 
-	}
-	
-	/**
-	 * @author Fangwei_Cai
-	 * @time since 2016年5月31日 下午8:03:37
-	 * @return
-	 */
-	@RequestMapping("/recommended")
-	@ResponseBody
-	public MoviesResponse recommendedMovies(HttpSession session){
-		MoviesResponse response = new MoviesResponse();
-		List<Movies> recommendMovies = null;
-
-		try{
-			Map<String,Object> map = (Map<String,Object>)session.getAttribute(session.getId());
-			if(map != null){
-				int userId = (int) map.get("id");
-				Users user = new Users();
-				user.setId(userId);
-				recommendMovies = null; //this.movieService.getRecommendMovies(user);
-			}else{
-				recommendMovies = null; //this.movieService.getRecommendMovies(null);
-			}
-
-			response = buildResponse(ResponseTypeEnum.SUCCESS);
-			response.setData(recommendMovies);
-
-			return response;
-		}catch(Exception e){
-			response = buildResponse(ResponseTypeEnum.SYSTEM_ERROR);
-			return response;
-		}
 	}
 	
 }

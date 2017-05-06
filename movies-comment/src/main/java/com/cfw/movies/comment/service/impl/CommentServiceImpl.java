@@ -2,10 +2,11 @@ package com.cfw.movies.comment.service.impl;
 
 import com.cfw.movies.comment.dao.CommentDao;
 import com.cfw.movies.comment.service.CommentService;
-import com.cfw.movies.commons.model.Comments;
+import com.cfw.movies.commons.model.Comment;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -40,7 +41,7 @@ public class CommentServiceImpl implements CommentService{
      * @time since 2016年5月7日 上午11:08:55
      */
     @Override
-    public List<Comments> getCommentsOfMovie(Integer movieId) {
-        return null;
+    public List<Comment> getCommentsOfMovie(Integer movieId) {
+        return new ArrayList<>();
     }
 }

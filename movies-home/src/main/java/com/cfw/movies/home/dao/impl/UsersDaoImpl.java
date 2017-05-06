@@ -1,6 +1,6 @@
 package com.cfw.movies.home.dao.impl;
 
-import com.cfw.movies.commons.model.Users;
+import com.cfw.movies.commons.model.User;
 import com.cfw.movies.home.dao.UsersDao;
 import com.cfw.movies.home.mapper.UsersMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ public class UsersDaoImpl implements UsersDao {
 	 * @since 2016.03.26 20:11
 	 */
 	@Override
-	public int updateUser(Users user) {
+	public int updateUser(User user) {
 		
 		int result = usersMapper.updateOne(user);
 		
@@ -38,7 +38,7 @@ public class UsersDaoImpl implements UsersDao {
 	 * @since 2016.03.27 10:08
 	 */
 	@Override
-	public int addUser(Users user) {
+	public int addUser(User user) {
 		
 		int result = usersMapper.insertOne(user);
 		
@@ -50,8 +50,8 @@ public class UsersDaoImpl implements UsersDao {
 	 * @time since 2016年5月1日 下午2:16:42
 	 */
 	@Override
-	public Users selectUserInBrief(String username) {
-		Users user = usersMapper.selectUserInBriefByName(username);
+	public User selectUserInBrief(String username) {
+		User user = usersMapper.selectUserInBriefByName(username);
 		return user;
 	}
 
@@ -63,8 +63,8 @@ public class UsersDaoImpl implements UsersDao {
 	 * @time since 2017-3-12 18:42:02
 	 */
 	@Override
-	public Users selectUserInBrief(String username, String password) {
-		Users user = this.usersMapper.selectUserInBrief(username,password);
+	public User selectUserInBrief(String username, String password) {
+		User user = this.usersMapper.selectUserInBrief(username,password);
 		return user;
 	}
 }

@@ -1,8 +1,8 @@
 package com.cfw.movies.home.dao.impl;
 
 import com.cfw.movies.commons.dto.Page;
-import com.cfw.movies.commons.model.Movies;
-import com.cfw.movies.commons.model.Users;
+import com.cfw.movies.commons.model.Movie;
+import com.cfw.movies.commons.model.User;
 import com.cfw.movies.commons.reflect.SimpleAssign;
 import com.cfw.movies.home.dao.MoviesDao;
 import com.cfw.movies.home.mapper.MoviesMapper;
@@ -28,7 +28,7 @@ public class MoviesDaoImpl implements MoviesDao {
 	 * @time since 2016年4月8日 下午4:25:32
 	 */
 	@Override
-	public int insertMovie(Movies movies) {
+	public int insertMovie(Movie movies) {
 		int result = this.moviesMapper.insertOne(movies);
 		
 		return result;
@@ -40,13 +40,13 @@ public class MoviesDaoImpl implements MoviesDao {
 	 * @time since 2016年4月24日 下午4:35:59
 	 */
 	@Override
-	public List<Movies> selectMovies(Map<String, Object> map) {
-		List<Movies> movies = this.moviesMapper.selectMovies(map);
+	public List<Movie> selectMovies(Map<String, Object> map) {
+		List<Movie> movies = this.moviesMapper.selectMovies(map);
 		return movies;
 	}
 
 	@Override
-	public List<Movies> selectMovies(Page page) {
+	public List<Movie> selectMovies(Page page) {
 		Map<String,Object> paramMap = new HashMap<String,Object>();
 
 		boolean result = SimpleAssign.assignValueToMap(paramMap, page);
@@ -62,14 +62,14 @@ public class MoviesDaoImpl implements MoviesDao {
 	 * @time since 2016年4月24日 下午6:40:04
 	 */
 	@Override
-	public List<Movies> selectFullMovies(Map<String, Object> map) {
-		List<Movies> movies = this.moviesMapper.selectFullMovies(map);
+	public List<Movie> selectFullMovies(Map<String, Object> map) {
+		List<Movie> movies = this.moviesMapper.selectFullMovies(map);
 
 		return movies;
 	}
 
 	@Override
-	public List<Movies> selectFullMovies(Page page) {
+	public List<Movie> selectFullMovies(Page page) {
 		Map<String,Object> paramMap = new HashMap<String,Object>();
 
 		boolean result = SimpleAssign.assignValueToMap(paramMap, page);
@@ -96,8 +96,8 @@ public class MoviesDaoImpl implements MoviesDao {
 	 * @time since 2016年5月7日 上午12:26:14
 	 */
 	@Override
-	public Movies selectOne(int id) {
-		Movies movie = this.moviesMapper.selectOne(id);
+	public Movie selectOne(int id) {
+		Movie movie = this.moviesMapper.selectOne(id);
 
 		return movie;
 	}
@@ -108,14 +108,14 @@ public class MoviesDaoImpl implements MoviesDao {
 	 * @time since 2016年5月8日 下午3:03:48
 	 */
 	@Override
-	public List<Movies> selectPic(Map<String, Object> map) {
-		List<Movies> movies = this.moviesMapper.selectPic(map);
+	public List<Movie> selectPic(Map<String, Object> map) {
+		List<Movie> movies = this.moviesMapper.selectPic(map);
 
 		return movies;
 	}
 
 	@Override
-	public List<Movies> selectPic(int start, int length) {
+	public List<Movie> selectPic(int start, int length) {
 		if( start < 0 || length < 0) return null;
 		Map<String,Object> map = new HashMap<>();
 		map.put("start",start);
@@ -142,7 +142,7 @@ public class MoviesDaoImpl implements MoviesDao {
 	 * @time since 2016年5月8日 下午10:05:57
 	 */
 	@Override
-	public int updateMovie(Movies movie) {
+	public int updateMovie(Movie movie) {
 		int result = this.moviesMapper.updateOne(movie);
 
 		return result;
@@ -154,8 +154,8 @@ public class MoviesDaoImpl implements MoviesDao {
 	 * @time since 2016年5月31日 下午7:44:12
 	 */
 	@Override
-	public List<Movies> selectRecommendedMovies(Users user) {
-		List<Movies> recommendMovies = this.moviesMapper.selectRecommendedMovies(user);
+	public List<Movie> selectRecommendedMovies(User user) {
+		List<Movie> recommendMovies = this.moviesMapper.selectRecommendedMovies(user);
 
 		return recommendMovies;
 	}
@@ -166,8 +166,8 @@ public class MoviesDaoImpl implements MoviesDao {
 	 * @time since 2016年5月31日 下午8:00:43
 	 */
 	@Override
-	public List<Movies> selectTopScoreMoviesToRecommend() {
-		List<Movies> recommendMovies = this.moviesMapper.selectTopScoreMoviesToRecommend();
+	public List<Movie> selectTopScoreMoviesToRecommend() {
+		List<Movie> recommendMovies = this.moviesMapper.selectTopScoreMoviesToRecommend();
 
 		return recommendMovies;
 	}

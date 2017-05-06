@@ -1,7 +1,7 @@
 package com.cfw.movies.login.service.impl;
 
 import com.cfw.movies.commons.enums.RedisKeyEnum;
-import com.cfw.movies.commons.model.Users;
+import com.cfw.movies.commons.model.User;
 import com.cfw.movies.login.dao.UsersDao;
 import com.cfw.movies.login.service.UserService;
 import com.cfw.plugins.redis.CRedis;
@@ -37,12 +37,12 @@ public class UserServiceImpl implements UserService {
 	 * @time since 2017-3-12 16:31:58
 	 */
 	@Override
-	public Users userLogin(String sessionId, String username, String password) {
+	public User userLogin(String sessionId, String username, String password) {
 		if(StringUtils.isEmpty(username) || StringUtils.isEmpty(password))
 			return null;
 
 		// Verify and get user's information.
-		Users user = this.getBriefInfo(username,password);
+		User user = this.getBriefInfo(username,password);
 		if(user != null){
 			// Cache with 5 hours.
 			// Use session id to cache.
@@ -61,10 +61,10 @@ public class UserServiceImpl implements UserService {
 	 * @return
 	 */
 	@Override
-	public Users checkLogined(String sessionId) {
+	public User checkLogined(String sessionId) {
 		String cache = redis.get(RedisKeyEnum.USER_LOGIN_CACHE.key);
 		Gson gson = new Gson();
-		Users user = gson.fromJson(cache,Users.class);
+		User user = gson.fromJson(cache,User.class);
 		return user;
 	}
 
@@ -77,7 +77,7 @@ public class UserServiceImpl implements UserService {
 	 * @time since 2017-3-12 16:09:53
 	 */
 	@Override
-	public Users getBriefInfo(String username) {
+	public User getBriefInfo(String username) {
 		if(StringUtils.isEmpty(username))
 			return null;
 
@@ -94,7 +94,7 @@ public class UserServiceImpl implements UserService {
 	 * @time since 2017-3-12 16:34:17
 	 */
 	@Override
-	public Users getBriefInfo(String username, String password) {
+	public User getBriefInfo(String username, String password) {
 		if(StringUtils.isEmpty(username) || StringUtils.isEmpty(password))
 			return null;
 
@@ -106,7 +106,7 @@ public class UserServiceImpl implements UserService {
 	 * @since 2016.06.26 20:13
 	 */
 	@Override
-	public boolean modifyUsersInfo(Users newUser) {
+	public boolean modifyUsersInfo(User newUser) {
 		int result = usersDaoImpl.updateUser(newUser);
 		
 		if(result>0)

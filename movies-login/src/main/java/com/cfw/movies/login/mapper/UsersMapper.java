@@ -1,6 +1,6 @@
 package com.cfw.movies.login.mapper;
 
-import com.cfw.movies.commons.model.Users;
+import com.cfw.movies.commons.model.User;
 import com.cfw.plugins.database.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository("usersMapper")
 @Mapper
-public interface UsersMapper extends BaseMapper<Users> {
+public interface UsersMapper extends BaseMapper<User> {
 	
 	/**
 	 * @author Fangwei_Cai
@@ -22,7 +22,7 @@ public interface UsersMapper extends BaseMapper<Users> {
 	 * @return
 	 */
 	@Select("SELECT username, head_pic, type FROM users WHERE username = #{userName} limit 1")
-	Users selectUserInBriefByName(@Param("userName") String userName);
+    User selectUserInBriefByName(@Param("userName") String userName);
 
 	/**
 	 * @param userName
@@ -32,5 +32,5 @@ public interface UsersMapper extends BaseMapper<Users> {
 	 * @time since 2017-3-12 18:43:55
 	 */
 	@Select("SELECT username, head_pic, type FROM users WHERE username = #{userName} AND password = #{password} limit 1")
-	Users selectUserInBrief(@Param("userName") String userName, @Param("password") String password);
+    User selectUserInBrief(@Param("userName") String userName, @Param("password") String password);
 }

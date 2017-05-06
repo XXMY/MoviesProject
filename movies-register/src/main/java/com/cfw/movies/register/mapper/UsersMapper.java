@@ -1,6 +1,6 @@
 package com.cfw.movies.register.mapper;
 
-import com.cfw.movies.commons.model.Users;
+import com.cfw.movies.commons.model.User;
 import com.cfw.plugins.database.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository("usersMapper")
 @Mapper
-public interface UsersMapper extends BaseMapper<Users> {
+public interface UsersMapper extends BaseMapper<User> {
 	
 	/**
 	 * @author Fangwei_Cai
@@ -22,5 +22,5 @@ public interface UsersMapper extends BaseMapper<Users> {
 	 * @return
 	 */
 	@Select("SELECT id FROM users WHERE username = #{username}")
-	Users selectUserByName(@Param("username") String username);
+    User selectUserByName(@Param("username") String username);
 }

@@ -1,7 +1,6 @@
 package com.cfw.movies.register.service.impl;
 
-import com.cfw.movies.commons.model.Users;
-import com.cfw.movies.commons.reflect.SimpleAssign;
+import com.cfw.movies.commons.model.User;
 import com.cfw.movies.register.dao.UsersDao;
 import com.cfw.movies.register.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +22,7 @@ public class UserServiceImpl implements UserService {
 	 */
 	@Override
     public boolean userExists(String userName) {
-		Users user = usersDaoImpl.selectUserByName(userName);
+		User user = usersDaoImpl.selectUserByName(userName);
 
 		return user == null ? false : true;
 	}
@@ -33,7 +32,7 @@ public class UserServiceImpl implements UserService {
 	 * @since 2016.03.27 10:11
 	 */
 	@Override
-	public boolean register(Users user) {
+	public boolean register(User user) {
 		boolean userExists = userExists(user.getUsername());
 		if(!userExists){
 			int result = usersDaoImpl.addUser(user);

@@ -2,7 +2,7 @@ package com.cfw.movies.login.controller;
 
 import com.cfw.movies.commons.controller.BaseController;
 import com.cfw.movies.commons.enums.ResponseTypeEnum;
-import com.cfw.movies.commons.model.Users;
+import com.cfw.movies.commons.model.User;
 import com.cfw.movies.commons.vo.MoviesResponse;
 import com.cfw.movies.commons.vo.RsaVO;
 import com.cfw.movies.login.service.UserService;
@@ -41,7 +41,7 @@ public class LoginController extends BaseController {
 	public MoviesResponse logined(HttpSession session){
 		MoviesResponse result = new MoviesResponse();
 		// Get the information from cache.
-		Users user = this.userService.checkLogined(session.getId());
+		User user = this.userService.checkLogined(session.getId());
 		if(user == null){
 			result = buildResponse(ResponseTypeEnum.USER_NOT_LOGINED);
 		}else{
@@ -63,12 +63,12 @@ public class LoginController extends BaseController {
 	@ResponseBody
 	public MoviesResponse login(HttpSession session, RsaVO rsaVO){
 		MoviesResponse result = new MoviesResponse();
-		Users user = null;
+		User user = null;
 
 		try{
 			String decoded = RSA.decodeBase64String((PrivateKey) RSAKeyPairs.publicPrivateKeys[1].get(rsaVO.getV()),rsaVO.getData());
 			Gson gson = new Gson();
-			user = (Users)gson.fromJson(decoded,Users.class);
+			user = (User)gson.fromJson(decoded,User.class);
 			user = userService.userLogin(session.getId(),user.getUsername(),user.getPassword());
 		}catch(Exception e){
 

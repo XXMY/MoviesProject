@@ -1,7 +1,7 @@
 package com.cfw.movies.commons.dto;
 
-import com.cfw.movies.commons.model.Comments;
-import com.cfw.movies.commons.model.Movies;
+import com.cfw.movies.commons.model.Comment;
+import com.cfw.movies.commons.model.Movie;
 
 import java.util.List;
 
@@ -13,34 +13,34 @@ import java.util.List;
  */
 public class MovieDetails {
 	
-	private Movies movie;
+	private Movie movie;
 	
-	private List<Comments> comments;
+	private List<Comment> comments;
 
 	public MovieDetails() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public MovieDetails(Movies movie, List<Comments> comments) {
+	public MovieDetails(Movie movie, List<Comment> comments) {
 		super();
 		this.movie = movie;
 		this.comments = comments;
 	}
 
-	public Movies getMovie() {
+	public Movie getMovie() {
 		return movie;
 	}
 
-	public void setMovie(Movies movie) {
+	public void setMovie(Movie movie) {
 		this.movie = movie;
 	}
 
-	public List<Comments> getComments() {
+	public List<Comment> getComments() {
 		return comments;
 	}
 
-	public void setComments(List<Comments> comments) {
+	public void setComments(List<Comment> comments) {
 		this.comments = comments;
 	}
 

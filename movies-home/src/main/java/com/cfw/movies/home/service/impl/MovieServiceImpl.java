@@ -1,6 +1,5 @@
 package com.cfw.movies.home.service.impl;
 
-import com.cfw.movies.commons.dto.MovieComment;
 import com.cfw.movies.commons.dto.Page;
 import com.cfw.movies.commons.model.*;
 import com.cfw.movies.commons.reflect.SimpleAssign;
@@ -35,8 +34,8 @@ public class MovieServiceImpl implements MovieService {
 	 * @time since 2016年4月8日 下午4:35:57
 	 */
 	@Override
-	public List<Types> getAllTypes() {
-		List<Types> movieTypes = typesDaoImpl.findAll();
+	public List<Type> getAllTypes() {
+		List<Type> movieTypes = typesDaoImpl.findAll();
 		
 		return movieTypes;
 	}
@@ -46,7 +45,7 @@ public class MovieServiceImpl implements MovieService {
 	 * @time since 2016年4月11日 上午11:44:49
 	 */
 	@Override
-	public boolean addType(Types type) {
+	public boolean addType(Type type) {
 		int insertTypeResult = typesDaoImpl.insertType(type);
 		return insertTypeResult>0 ? true : false;
 	}
@@ -56,7 +55,7 @@ public class MovieServiceImpl implements MovieService {
 	 * @time since 2016年4月8日 下午4:36:06
 	 */
 	@Override
-	public boolean addMovie(Movies movies) {
+	public boolean addMovie(Movie movies) {
 		
 		// Persist movie's abstract first.
 		boolean addAbstractResult = addDescription(movies.getDescription());
@@ -75,7 +74,7 @@ public class MovieServiceImpl implements MovieService {
 	 * @time since 2016年4月8日 下午4:45:40
 	 */
 	@Override
-	public boolean addDescription(Descriptions abstracts) {
+	public boolean addDescription(Description abstracts) {
 		int insertAbstractResult = abstractsDaoImpl.insertDescription(abstracts);
 		
 		return insertAbstractResult>0 ? true : false;
@@ -96,8 +95,8 @@ public class MovieServiceImpl implements MovieService {
      * @return
      */
 	@Override
-	public List<Movies> getMovies(Page page, int flag) {
-		List<Movies> movies = null;
+	public List<Movie> getMovies(Page page, int flag) {
+		List<Movie> movies = null;
 
 		Map<String,Object> paramMap = new HashMap<String,Object>();
 
@@ -113,13 +112,13 @@ public class MovieServiceImpl implements MovieService {
 		
 		if(movies == null || movies.size() == 0) return movies;
 		
-		List<Types> types = this.getAllTypes();
-		for(Movies movie : movies){
+		List<Type> types = this.getAllTypes();
+		for(Movie movie : movies){
 			String movieTypeStr = movie.getType();
 			String [] typeStrArr = movieTypeStr.split("_");
 			String typeName = "";
 			for(String typeStr : typeStrArr){
-				for(Types type : types){
+				for(Type type : types){
 					if(type.getId() == Integer.parseInt(typeStr)){
 						typeName += type.getType_name() + "/";
 					}
@@ -159,9 +158,9 @@ public class MovieServiceImpl implements MovieService {
 	 * @time since 2016年5月7日 上午12:28:07
 	 */
 	@Override
-	public Movies getOneMovie(int id) {
+	public Movie getOneMovie(int id) {
 		try{
-			Movies movie = this.moviesDaoImpl.selectOne(id);
+			Movie movie = this.moviesDaoImpl.selectOne(id);
 
 			return movie;
 		}catch (Exception e){
@@ -178,11 +177,11 @@ public class MovieServiceImpl implements MovieService {
 	 * @time since 2016年5月8日 下午3:06:18
 	 */
 	@Override
-	public List<Movies> findPic(Map<String, Object> map) {
+	public List<Movie> findPic(Map<String, Object> map) {
 		int start = (Integer) map.get("start");
 		int length = (Integer) map.get("length");
 		try{
-			List<Movies> movies = this.moviesDaoImpl.selectPic(start, length);
+			List<Movie> movies = this.moviesDaoImpl.selectPic(start, length);
 
 			return movies;
 		}catch(Exception e){
@@ -216,7 +215,7 @@ public class MovieServiceImpl implements MovieService {
 	@Override
 	public boolean deleteMovie(int... mids) {
 		for(int mid : mids){
-			Movies movie = new Movies();
+			Movie movie = new Movie();
 			movie.setId(mid);
 			movie.setIsdeleted(true);
 			
@@ -234,14 +233,14 @@ public class MovieServiceImpl implements MovieService {
 	 * @time since 2016年6月1日 下午4:52:32
 	 */
 	@Override
-	public boolean modifyMoive(Movies movie) {
+	public boolean modifyMoive(Movie movie) {
 		
 		if(movie.getId()<=0) return false;
 		
 		int descriptionId = this.moviesDaoImpl.selectDesciptionId(movie.getId());
 		if(descriptionId <=0 ) return false;
 		
-		Descriptions description = movie.getDescription();
+		Description description = movie.getDescription();
 		description.setId(descriptionId);
 		int updateDescriptionResult = this.abstractsDaoImpl.updateOne(description);
 		
@@ -253,5 +252,4 @@ public class MovieServiceImpl implements MovieService {
 		
 		return false;
 	}
-
 }

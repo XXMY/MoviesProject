@@ -1,6 +1,6 @@
 package com.cfw.movies.register.dao.impl;
 
-import com.cfw.movies.commons.model.Users;
+import com.cfw.movies.commons.model.User;
 import com.cfw.movies.register.dao.UsersDao;
 import com.cfw.movies.register.mapper.UsersMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class UsersDaoImpl implements UsersDao {
 	 * @since 2016.03.27 10:08
 	 */
 	@Override
-	public int addUser(Users user) {
+	public int addUser(User user) {
 		
 		int result = usersMapper.insertOne(user);
 		
@@ -34,8 +34,8 @@ public class UsersDaoImpl implements UsersDao {
 	 * @time since 2016年5月1日 下午2:16:42
 	 */
 	@Override
-	public Users selectUserByName(String username) {
-		Users user = usersMapper.selectUserByName(username);
+	public User selectUserByName(String username) {
+		User user = usersMapper.selectUserByName(username);
 		return user;
 	}
 

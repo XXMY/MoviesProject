@@ -1,6 +1,6 @@
 package com.cfw.movies.home.dao;
 
-import com.cfw.movies.commons.model.Descriptions;
+import com.cfw.movies.commons.model.Description;
 
 /**
  * @author Fangwei_Cai
@@ -13,7 +13,7 @@ public interface AbstractsDao {
 	 * @author Fangwei_Cai
 	 * @time since 2016年4月8日 下午4:19:41
 	 */
-	int insertDescription(Descriptions abstracts);
+	int insertDescription(Description abstracts);
 	
 	/**
 	 * @author Fangwei_Cai
@@ -21,7 +21,7 @@ public interface AbstractsDao {
 	 * @param descritpion
 	 * @return
 	 */
-	int updateOne(Descriptions descritpion);
+	int updateOne(Description descritpion);
 	
 
 }

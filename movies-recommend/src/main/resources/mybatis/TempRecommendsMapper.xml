@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfw.movies.recommend.mapper.TempRecommendMapper">
+	
+	<!-- 2016.05.29 11:21 -->
+	<select id="selectRecommendUsers" resultType="User">
+		SELECT
+			uid AS id
+		FROM
+			temp_recommends
+		GROUP BY 
+			uid
+	</select>
+	
+	<!-- 2016.05.29 11:24 -->
+	<select id="selectRecommends" parameterType="Users" resultType="Recommend">
+		SELECT
+			uid,
+			mid,
+			pref
+		FROM
+			temp_recommends
+		WHERE
+			mid NOT IN (
+				SELECT
+					mid
+				FROM
+					comments
+				WHERE
+					uid = #{id}
+			)
+		AND
+			uid = #{id}
+	</select>
+</mapper>

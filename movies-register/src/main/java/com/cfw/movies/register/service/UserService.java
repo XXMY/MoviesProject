@@ -1,6 +1,6 @@
 package com.cfw.movies.register.service;
 
-import com.cfw.movies.commons.model.Users;
+import com.cfw.movies.commons.model.User;
 
 /**
  * 用户注册服务接口
@@ -21,6 +21,6 @@ public interface UserService {
 	 * @author Fangwei_Cai
 	 * @time since 2016年3月27日 上午10:05:11
 	 */
-	boolean register(Users user);
+	boolean register(User user);
 
 }

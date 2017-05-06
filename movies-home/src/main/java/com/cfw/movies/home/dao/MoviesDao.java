@@ -1,8 +1,8 @@
 package com.cfw.movies.home.dao;
 
 import com.cfw.movies.commons.dto.Page;
-import com.cfw.movies.commons.model.Movies;
-import com.cfw.movies.commons.model.Users;
+import com.cfw.movies.commons.model.Movie;
+import com.cfw.movies.commons.model.User;
 
 import java.util.List;
 import java.util.Map;
@@ -17,16 +17,16 @@ public interface MoviesDao {
 	 * @author Fangwei_Cai
 	 * @time since 2016年4月8日 下午4:18:42
 	 */
-	int insertMovie(Movies movies);
+	int insertMovie(Movie movies);
 	
 	/**
 	 * @author Fangwei_Cai
 	 * @time since 2016年4月24日 上午10:24:53
 	 * @param map
-	 * @return List<Movies>
+	 * @return List<Movie>
 	 */
-	List<Movies> selectMovies(Map<String, Object> map);
-	List<Movies> selectMovies(Page page);
+	List<Movie> selectMovies(Map<String, Object> map);
+	List<Movie> selectMovies(Page page);
 
 
 	/**
@@ -35,8 +35,8 @@ public interface MoviesDao {
 	 * @param map
 	 * @return
 	 */
-	List<Movies> selectFullMovies(Map<String, Object> map);
-	List<Movies> selectFullMovies(Page page);
+	List<Movie> selectFullMovies(Map<String, Object> map);
+	List<Movie> selectFullMovies(Page page);
 
 	/**
 	 * @author Fangwei_Cai
@@ -51,7 +51,7 @@ public interface MoviesDao {
 	 * @param id
 	 * @return
 	 */
-	Movies selectOne(int id);
+	Movie selectOne(int id);
 
 	/**
 	 * @author Fangwei_Cai
@@ -59,9 +59,9 @@ public interface MoviesDao {
 	 * @param map
 	 * @return
 	 */
-	List<Movies> selectPic(Map<String, Object> map);
+	List<Movie> selectPic(Map<String, Object> map);
 
-	List<Movies> selectPic(int start, int length);
+	List<Movie> selectPic(int start, int length);
 
 	/**
 	 * @author Fangwei_Cai
@@ -77,7 +77,7 @@ public interface MoviesDao {
 	 * @param movie
 	 * @return
 	 */
-	int updateMovie(Movies movie);
+	int updateMovie(Movie movie);
 
 	/**
 	 * @author Fangwei_Cai
@@ -85,7 +85,7 @@ public interface MoviesDao {
 	 * @param user
 	 * @return
 	 */
-	List<Movies> selectRecommendedMovies(Users user);
+	List<Movie> selectRecommendedMovies(User user);
 	
 	/**
 	 * Select five movies which score is in top list. 
@@ -93,7 +93,7 @@ public interface MoviesDao {
 	 * @time since 2016年5月31日 下午7:51:40
 	 * @return
 	 */
-	List<Movies> selectTopScoreMoviesToRecommend();
+	List<Movie> selectTopScoreMoviesToRecommend();
 	
 	/**
 	 * @author Fangwei_Cai

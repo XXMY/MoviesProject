@@ -1,6 +1,6 @@
 package com.cfw.movies.home.mapper;
 
-import com.cfw.movies.commons.model.Descriptions;
+import com.cfw.movies.commons.model.Description;
 import com.cfw.plugins.database.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
@@ -11,6 +11,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository("descriptionsMapper")
 @Mapper
-public interface DescriptionsMapper extends BaseMapper<Descriptions> {
+public interface DescriptionsMapper extends BaseMapper<Description> {
 	
 }

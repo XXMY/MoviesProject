@@ -1,6 +1,6 @@
 package com.cfw.movies.register.dao;
 
-import com.cfw.movies.commons.model.Users;
+import com.cfw.movies.commons.model.User;
 
 /**
  * Operation interface of users' data.
@@ -13,7 +13,7 @@ public interface UsersDao {
 	 * @author Fangwei_Cai
 	 * @time since 2016年3月27日 上午10:07:00
 	 */
-	int addUser(Users user);
+	int addUser(User user);
 	
 	/**
 	 * @author Fangwei_Cai
@@ -21,7 +21,7 @@ public interface UsersDao {
 	 * @param username
 	 * @return
 	 */
-	Users selectUserByName(String username);
+	User selectUserByName(String username);
 
 	
 }
