@@ -35,6 +35,7 @@ public class UserServiceImpl implements UserService {
 	public boolean register(User user) {
 		boolean userExists = userExists(user.getUsername());
 		if(!userExists){
+
 			int result = usersDaoImpl.addUser(user);
 			if(result > 0)
 				return true;
