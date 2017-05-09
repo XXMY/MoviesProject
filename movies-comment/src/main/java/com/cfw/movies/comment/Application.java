@@ -6,7 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * Created by Cfw on 2017/3/10.
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {
+        "com.cfw.movies.comment",
+        "com.cfw.movies.commons"})
 public class Application {
 
     public static void main(String [] args){

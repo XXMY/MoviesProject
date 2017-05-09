@@ -19,7 +19,7 @@ public class RMIConfig {
     @Bean("commentService")
     public RmiProxyFactoryBean initRmiProxyFactoryBean(){
         RmiProxyFactoryBean factoryBean = new RmiProxyFactoryBean();
-        factoryBean.setServiceUrl(CommonProperties.getCommentRmiUrl(null));
+        factoryBean.setServiceUrl(CommonProperties.getCommentRmiUrl("commentService"));
         factoryBean.setServiceInterface(CommentService.class);
 
         return factoryBean;

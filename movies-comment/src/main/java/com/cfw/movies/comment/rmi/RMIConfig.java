@@ -21,7 +21,7 @@ public class RMIConfig {
 
     public RMIConfig(){}
 
-    @Bean
+    @Bean("commentServiceExporter")
     public RmiServiceExporter commentServiceExporter(){
 
         RmiServiceExporter exporter = new RmiServiceExporter();

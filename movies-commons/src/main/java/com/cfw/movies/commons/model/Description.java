@@ -7,7 +7,7 @@ package com.cfw.movies.commons.model;
  */
 public class Description {
 	
-	private int id;
+	private Integer id;
 
 	private String abstract_;
 
@@ -24,11 +24,11 @@ public class Description {
 		this.isdeleted = false;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

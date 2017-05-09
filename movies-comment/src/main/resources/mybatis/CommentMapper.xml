@@ -33,7 +33,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<arg column="create_time" javaType="Date"/>
 			<arg column="like" javaType="Integer"/>
 		</constructor>
-		<association property="user" javaType="Users">
+		<association property="user" javaType="User">
 			<result property="username" column="username"/>
 			<result property="head_pic" column="head_pic"/>
 		</association>

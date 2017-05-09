@@ -8,7 +8,7 @@ import java.util.Date;
  */
 public class Movie {
 	
-	private int id;
+	private Integer id;
 	
 	private String name;
 	
@@ -32,13 +32,13 @@ public class Movie {
 		this.description = new Description();
 	}
 	
-	public Movie(int id, String name, Float score){
+	public Movie(Integer id, String name, Float score){
 		this.id = id;
 		this.name = name;
 		this.score = score;
 	}
 
-	public Movie(int id, String name, String type, String pic, Float score){
+	public Movie(Integer id, String name, String type, String pic, Float score){
 		super();
 		this.id = id;
 		this.name = name;
@@ -55,11 +55,11 @@ public class Movie {
 		this.pic = pic;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

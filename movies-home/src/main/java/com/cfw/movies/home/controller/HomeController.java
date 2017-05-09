@@ -29,7 +29,7 @@ import java.util.Map;
  * @time since 2016年4月8日 下午3:04:14
  */
 @Controller
-@RequestMapping("/Movie")
+@RequestMapping("/Home")
 public class HomeController extends BaseController {
 
 	@Autowired

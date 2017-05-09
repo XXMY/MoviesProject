@@ -11,7 +11,7 @@ import java.util.Date;
 public class Comment implements Serializable{
 
 	private static final long serialVersionUID = 6791938201881473975L;
-	private Long id;
+	private Integer id;
 	
 	private String comment;
 	
@@ -30,7 +30,7 @@ public class Comment implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Comment(Long id, String comment, float score, Long mid, Date create_time) {
+	public Comment(Integer id, String comment, float score, Long mid, Date create_time) {
 		super();
 		this.id = id;
 		this.comment = comment;
@@ -39,7 +39,7 @@ public class Comment implements Serializable{
 		this.create_time = create_time;
 	}
 
-	public Comment(Long id, String comment, Float score, Long mid, Date create_time, Integer like) {
+	public Comment(Integer id, String comment, Float score, Long mid, Date create_time, Integer like) {
 		super();
 		this.id = id;
 		this.comment = comment;
@@ -49,11 +49,11 @@ public class Comment implements Serializable{
 		this.like = like;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

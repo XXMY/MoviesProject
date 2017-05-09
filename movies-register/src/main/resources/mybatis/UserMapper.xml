@@ -7,12 +7,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="insertOne" parameterType="User" >
 		INSERT INTO 
 			users(
+				user_key,
 				username,
-				password
+				password,
+				register_time,
+				last_login
 			) 
 		VALUES(
+			#{userKey},
 			#{username},
-			#{password}
+			#{password},
+			now(),
+			now()
 		)
 	</insert>
 

@@ -13,14 +13,14 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = Application.class)
-public class UniqueCreatorTest {
+public class UniqueGeneratorTest {
 
     @Autowired
-    private UniqueCreator uniqueCreator;
+    private UniqueGenerator uniqueGenerator;
 
     @Test
     public void test(){
-        System.out.println(uniqueCreator.newUserKey(AccountTypeEnum.MOVIE));
+        System.out.println(uniqueGenerator.newUserKey(AccountTypeEnum.MOVIE));
     }
 
 }

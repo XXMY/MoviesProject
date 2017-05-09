@@ -13,7 +13,7 @@ import java.util.Date;
  * Created by Duskrain on 2017/5/8.
  */
 @Component
-public class UniqueCreator {
+public class UniqueGenerator {
 
     @Autowired
     private CRedis redis;

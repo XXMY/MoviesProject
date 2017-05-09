@@ -6,8 +6,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.cfw.movies.home.mapper.DescriptionsMapper">
 	
 	<!-- Insert a abstract must with its full information. -->
-	<insert id="insertOne" parameterType="Descriptions">
-		<selectKey keyProperty="id" order="AFTER"  resultType="Long">
+	<insert id="insertOne" parameterType="Description">
+		<selectKey keyProperty="id" order="AFTER"  resultType="Integer">
 			SELECT LAST_INSERT_ID()
 		</selectKey>
 		INSERT INTO 
@@ -24,7 +24,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<!-- 2016.06.01 16:41 -->
-	<update id="updateOne" parameterType="Descriptions">
+	<update id="updateOne" parameterType="Description">
 		UPDATE
 			descriptions
 		<set>

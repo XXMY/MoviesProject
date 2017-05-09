@@ -9,6 +9,7 @@ import com.cfw.movies.recommend.dao.TempRecommendDao;
 import com.cfw.movies.recommend.service.RecommendService;
 import com.cfw.movies.recommend.thread.RecommendStatus;
 import com.cfw.movies.recommend.thread.RecommendThread;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -85,23 +86,22 @@ public class RecommendServiceImpl implements RecommendService {
 
 	/**
 	 * (non-Javadoc)
-	 * @see cfw.movies.service.MovieService#getRecommendMovies(cfw.movies.model.Users)
 	 * @author Fangwei_Cai
 	 * @time since 2016年5月31日 下午7:47:48
 	 */
 	@Override
-	public List<Movie> getRecommendMovies(User user) {
+	public List<Movie> getRecommendMovies(String userKey) {
 		List<Movie> recommendMovies = null;
 		// While user is not logined.
-		if (user == null) {
+		if (StringUtils.isEmpty(userKey)) {
 			recommendMovies = this.recommendDao.selectTopScoreMoviesToRecommend();
 
 			return recommendMovies;
 		}
 
-		int recommendCount = this.recommendDao.selectRecommendedMoviesCount(user.getId());
+		int recommendCount = this.recommendDao.selectRecommendedMoviesCount(userKey);
 		if (recommendCount > 0)
-			recommendMovies = this.recommendDao.selectRecommendedMovies(user.getId());
+			recommendMovies = this.recommendDao.selectRecommendedMovies(userKey);
 		else
 			recommendMovies = this.recommendDao.selectTopScoreMoviesToRecommend();
 

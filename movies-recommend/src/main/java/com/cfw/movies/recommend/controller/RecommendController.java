@@ -17,6 +17,7 @@ import java.util.Map;
  * Created by Duskrain on 2017/5/6.
  */
 @Controller
+@RequestMapping("Recommend")
 public class RecommendController extends BaseController{
 
     /**

@@ -1,8 +1,10 @@
 package com.cfw.movies.register.service.impl;
 
+import com.cfw.movies.commons.enums.AccountTypeEnum;
 import com.cfw.movies.commons.model.User;
 import com.cfw.movies.register.dao.UsersDao;
 import com.cfw.movies.register.service.UserService;
+import com.cfw.movies.register.util.UniqueGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,9 @@ import org.springframework.stereotype.Service;
  */
 @Service("registerServiceImpl")
 public class UserServiceImpl implements UserService {
+
+	@Autowired
+	private UniqueGenerator keyGenerator;
 
 	@Autowired
 	private UsersDao usersDaoImpl;
@@ -35,10 +40,9 @@ public class UserServiceImpl implements UserService {
 	public boolean register(User user) {
 		boolean userExists = userExists(user.getUsername());
 		if(!userExists){
+			user.setUserKey(keyGenerator.newUserKey(AccountTypeEnum.MOVIE));
 
-			int result = usersDaoImpl.addUser(user);
-			if(result > 0)
-				return true;
+			return usersDaoImpl.addUser(user) > 0;
 		}
 		
 		return false;

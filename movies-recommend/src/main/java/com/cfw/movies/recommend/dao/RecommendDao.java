@@ -34,11 +34,11 @@ public class RecommendDao {
 	 * While the number of recommended movies larger than zero,then select movies.
 	 * @author Fangwei_Cai
 	 * @time since 2016年5月31日 下午6:59:15
-	 * @param userId
+	 * @param userKey
 	 * @return
 	 */
-	public int selectRecommendedMoviesCount(Integer userId){
-		return this.recommendMapper.selectRecommendedMoviesCount(userId);
+	public int selectRecommendedMoviesCount(String userKey){
+		return this.recommendMapper.selectRecommendedMoviesCount(userKey);
 	}
 
 	/**
@@ -53,8 +53,8 @@ public class RecommendDao {
 		return recommendMovies;
 	}
 
-	public List<Movie> selectRecommendedMovies(Integer userId) {
-		List<Movie> recommendMovies = this.recommendMapper.selectRecommendedMovies(userId);
+	public List<Movie> selectRecommendedMovies(String userKey) {
+		List<Movie> recommendMovies = this.recommendMapper.selectRecommendedMovies(userKey);
 
 		return recommendMovies;
 	}

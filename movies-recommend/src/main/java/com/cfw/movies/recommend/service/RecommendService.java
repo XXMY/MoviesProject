@@ -42,8 +42,8 @@ public interface RecommendService {
 	/**
 	 * @author Fangwei_Cai
 	 * @time since 2016年5月31日 下午7:47:25
-	 * @param user
+	 * @param userKey
 	 * @return
 	 */
-	List<Movie> getRecommendMovies(User user);
+	List<Movie> getRecommendMovies(String userKey);
 }

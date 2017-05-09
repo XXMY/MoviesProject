@@ -22,10 +22,10 @@ public interface RecommendMapper extends BaseMapper<Recommend> {
 	 * While the number of recommended movies larger than zero,then select movies.
 	 * @author Fangwei_Cai
 	 * @time since 2016年5月31日 下午6:59:15
-	 * @param userId
+	 * @param userKey
 	 * @return
 	 */
-	int selectRecommendedMoviesCount(@Param("userId") Integer userId);
+	int selectRecommendedMoviesCount(@Param("userKey") String userKey);
 
 	/**
 	 * Select five movies which score is in top list.
@@ -38,8 +38,8 @@ public interface RecommendMapper extends BaseMapper<Recommend> {
 	/**
 	 * @author Fangwei_Cai
 	 * @time since 2016年5月31日 下午6:58:16
-	 * @param user
+	 * @param userKey
 	 * @return
 	 */
-	List<Movie> selectRecommendedMovies(@Param("userId") Integer userId);
+	List<Movie> selectRecommendedMovies(@Param("userKey") String userKey);
 }

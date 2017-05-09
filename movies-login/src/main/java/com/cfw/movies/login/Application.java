@@ -6,7 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * Created by Cfw on 2017/3/10.
  */
-@SpringBootApplication(scanBasePackages = {"com.cfw.movies","com.cfw.plugins"})
+@SpringBootApplication(scanBasePackages = {
+        "com.cfw.movies.login",
+        "com.cfw.plugins"})
 public class Application {
 
     public static void main(String [] args){

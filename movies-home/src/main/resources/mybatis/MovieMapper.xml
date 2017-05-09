@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- namespace 指定的是映射接口的完整路劲名 -->
 <mapper namespace="com.cfw.movies.home.mapper.MoviesMapper">
 	<!-- Insert a movie must with its full information. -->
-	<insert id="insertOne" parameterType="Movies">
+	<insert id="insertOne" parameterType="Movie">
 		INSERT INTO 
 			movies(
 				name,
@@ -27,7 +27,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		)
 	</insert>
 	
-	<select id="selectMovies" parameterType="Map" resultType="Movies">
+	<select id="selectMovies" parameterType="Map" resultType="Movie">
 		SELECT
 			id,
 			name,
@@ -54,15 +54,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 2016.04.24 19:04 -->
-	<resultMap type="Movies" id="fullMovieMap">
+	<resultMap type="Movie" id="fullMovieMap">
 		<constructor>
-			<idArg column="id" javaType="Long"/>
+			<idArg column="id" javaType="Integer"/>
 			<arg column="name" javaType="String"/>
 			<arg column="type" javaType="String"/>
 			<arg column="pic" javaType="String"/> 
 			<arg column="score" javaType="Float"/>
 		</constructor>
-		<association property="description" javaType="Descriptions">
+		<association property="description" javaType="Description">
 			<id property="id" column="did"/>
 			<result property="abstract_" column="abstract_"/>
 			<result property="description" column="description"/>
@@ -109,7 +109,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 2016.05.07 00:21 -->
-	<select id="selectOne" parameterType="Long" resultMap="fullMovieMap">
+	<select id="selectOne" parameterType="Integer" resultMap="fullMovieMap">
 		SELECT
 			m.id,
 			m.name,
@@ -133,7 +133,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 2016.04.24 21:54 -->
-	<select id="selectCount" resultType="Long">
+	<select id="selectCount" resultType="Integer">
 		SELECT
 			count(id)
 		FROM 
@@ -141,7 +141,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 2016.05.08 14:58 -->
-	<select id="selectPic" parameterType="Map" resultType="Movies">
+	<select id="selectPic" parameterType="Map" resultType="Movie">
 		SELECT
 			id,
 			pic
@@ -161,7 +161,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	
 	<!-- 2016.05.08 21:52 -->
-	<update id="updateOne" parameterType="Movies">
+	<update id="updateOne" parameterType="Movie">
 		UPDATE
 			movies
 		SET
@@ -176,18 +176,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	
 	<!-- 2016.05.31 19:43 -->
-	<resultMap type="Movies" id="recommendMovieMap">
+	<resultMap type="Movie" id="recommendMovieMap">
 		<constructor>
-			<idArg column="id" javaType="Long"/>
+			<idArg column="id" javaType="Integer"/>
 			<arg column="name" javaType="String"/>
 			<arg column="score" javaType="Float"/>
 		</constructor>
-		<association property="description" javaType="Descriptions">
+		<association property="description" javaType="Description">
 			<id property="id" column="did"/>
 			<result property="abstract_" column="abstract_"/>
 		</association>
 	</resultMap>
-	<select id="selectRecommendedMovies" parameterType="Users" resultMap="recommendMovieMap">
+	<select id="selectRecommendedMovies" parameterType="User" resultMap="recommendMovieMap">
 		SELECT
 			m.id as id,
 			m.name as name,
@@ -236,7 +236,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 2016.06.01 17:11 -->
-	<select id="selectDesciptionId" parameterType="Long" resultType="Long">
+	<select id="selectDesciptionId" parameterType="Integer" resultType="Long">
 		SELECT
 			did
 		FROM 

@@ -6,7 +6,7 @@ package com.cfw.movies.commons.model;
  */
 public class Type {
 
-	private int id;
+	private Integer id;
 	private String type_name;
 	
 	public Type() {
@@ -16,13 +16,15 @@ public class Type {
 	public Type(String type_name){
 		this.type_name = type_name;
 	}
-	
-	public int getId() {
+
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+
+	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public String getType_name() {
 		return type_name;
 	}
