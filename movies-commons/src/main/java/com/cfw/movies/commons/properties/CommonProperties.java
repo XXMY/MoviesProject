@@ -14,6 +14,9 @@ public class CommonProperties {
     private static String commentRmiHost;
     private static int commentRmiPort;
 
+    private static String loginRmiHost;
+    private static int loginRmiPort;
+
     public static int getRsaKeyPairNumber() {
         return rsaKeyPairNumber;
     }
@@ -40,5 +43,25 @@ public class CommonProperties {
 
     public static String getCommentRmiUrl(String serviceName){
         return "rmi://" + commentRmiHost + ":" + commentRmiPort + "/" + serviceName;
+    }
+
+    public static String getLoginRmiHost() {
+        return loginRmiHost;
+    }
+
+    public static void setLoginRmiHost(String loginRmiHost) {
+        CommonProperties.loginRmiHost = loginRmiHost;
+    }
+
+    public static int getLoginRmiPort() {
+        return loginRmiPort;
+    }
+
+    public static void setLoginRmiPort(int loginRmiPort) {
+        CommonProperties.loginRmiPort = loginRmiPort;
+    }
+
+    public static String getLoginRmiUrl(String serviceName){
+        return "rmi://" + loginRmiHost + ":" + loginRmiPort + "/" + serviceName;
     }
 }

@@ -26,10 +26,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 2016.05.07 10:36 -->
 	<resultMap type="Comment" id="commentMap">
 		<constructor>
-			<idArg column="id" javaType="Long"/>
+			<idArg column="id" javaType="Integer"/>
 			<arg column="comment" javaType="String"/>
 			<arg column="score" javaType="Float"/>
-			<arg column="mid" javaType="Long"/>
+			<arg column="mid" javaType="Integer"/>
 			<arg column="create_time" javaType="Date"/>
 			<arg column="like" javaType="Integer"/>
 		</constructor>

@@ -17,10 +17,12 @@ public class RMIConfig {
     private CommonProperties commonProperties;
 
     @Bean("commentService")
-    public RmiProxyFactoryBean initRmiProxyFactoryBean(){
+    public RmiProxyFactoryBean initCommentService(){
         RmiProxyFactoryBean factoryBean = new RmiProxyFactoryBean();
         factoryBean.setServiceUrl(CommonProperties.getCommentRmiUrl("commentService"));
         factoryBean.setServiceInterface(CommentService.class);
+        factoryBean.setRefreshStubOnConnectFailure(true);
+        factoryBean.setLookupStubOnStartup(false);
 
         return factoryBean;
     }

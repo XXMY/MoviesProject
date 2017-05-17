@@ -30,6 +30,11 @@
             <artifactId>plugin-test</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.cfw.plugins</groupId>
+            <artifactId>plugin-rpc</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>

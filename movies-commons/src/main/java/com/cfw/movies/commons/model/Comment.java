@@ -19,7 +19,7 @@ public class Comment implements Serializable{
 	
 	private User user;
 	
-	private Long mid;
+	private Integer mid;
 	
 	private Date create_time;
 	
@@ -30,7 +30,7 @@ public class Comment implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Comment(Integer id, String comment, float score, Long mid, Date create_time) {
+	public Comment(Integer id, String comment, float score, Integer mid, Date create_time) {
 		super();
 		this.id = id;
 		this.comment = comment;
@@ -39,7 +39,7 @@ public class Comment implements Serializable{
 		this.create_time = create_time;
 	}
 
-	public Comment(Integer id, String comment, Float score, Long mid, Date create_time, Integer like) {
+	public Comment(Integer id, String comment, Float score, Integer mid, Date create_time, Integer like) {
 		super();
 		this.id = id;
 		this.comment = comment;
@@ -81,11 +81,11 @@ public class Comment implements Serializable{
 		this.user = user;
 	}
 
-	public Long getMid() {
+	public Integer getMid() {
 		return mid;
 	}
 
-	public void setMid(Long mid) {
+	public void setMid(Integer mid) {
 		this.mid = mid;
 	}
 

@@ -1,22 +1,36 @@
 package com.cfw.movies.comment.service.impl;
 
+import com.cfw.movies.login.service.UserService;
 import com.cfw.movies.comment.dao.CommentDao;
 import com.cfw.movies.comment.service.CommentService;
 import com.cfw.movies.commons.model.Comment;
+import com.cfw.movies.commons.model.User;
+import com.cfw.plugins.rmi.annotation.CRmiExport;
+import com.cfw.plugins.rmi.annotation.CRmiImport;
+import com.cfw.plugins.rmi.annotation.CRmiImportService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Cfw on 2017/5/5.
  */
 @Service("commentService")
+@CRmiImport
+@CRmiExport
 public class CommentServiceImpl implements CommentService{
 
     @Resource(name = "commentDao")
     private CommentDao commentDao;
+
+    @Autowired
+    //@Resource(name = "userService")
+    @Lazy
+    @CRmiImportService
+    private UserService userService;
 
     /**
      * Add a new comment.
@@ -31,7 +45,15 @@ public class CommentServiceImpl implements CommentService{
      */
     @Override
     public boolean addComment(Integer movieId, String username, String comment, float score) {
-        return false;
+        Comment c = new Comment();
+        c.setMid(movieId);
+
+        User user = this.userService.getBriefInfo(username);
+        c.setUser(user);
+        c.setComment(comment);
+        c.setScore(score);
+
+        return this.commentDao.insertComment(c) > 0;
     }
 
     /**
@@ -42,6 +64,6 @@ public class CommentServiceImpl implements CommentService{
      */
     @Override
     public List<Comment> getCommentsOfMovie(Integer movieId) {
-        return new ArrayList<>();
+        return this.commentDao.selectCommentsOfMovie(movieId);
     }
 }

@@ -26,7 +26,7 @@ import java.security.PrivateKey;
 @RequestMapping("/Login")
 public class LoginController extends BaseController {
 	
-	@Resource(name = "userServiceImpl")
+	@Resource(name = "userService")
 	private UserService userService;
 	
 	/**
@@ -45,7 +45,7 @@ public class LoginController extends BaseController {
 		if(user == null){
 			result = buildResponse(ResponseTypeEnum.USER_NOT_LOGINED);
 		}else{
-			result = buildResponse(ResponseTypeEnum.USER_LOGINED);
+			result = buildResponse(ResponseTypeEnum.SUCCESS);
 			result.setData(user);
 		}
 

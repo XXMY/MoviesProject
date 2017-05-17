@@ -5,6 +5,7 @@ import com.cfw.movies.commons.model.User;
 import com.cfw.movies.login.dao.UsersDao;
 import com.cfw.movies.login.service.UserService;
 import com.cfw.plugins.redis.CRedis;
+import com.cfw.plugins.rmi.annotation.CRmiExport;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,8 @@ import java.util.concurrent.TimeUnit;
  * @author Fangwei_Cai
  * @time since 2016年3月26日 下午8:07:16
  */
-@Service("userServiceImpl")
+@Service("userService")
+@CRmiExport
 public class UserServiceImpl implements UserService {
 
 	@Autowired
@@ -62,7 +64,7 @@ public class UserServiceImpl implements UserService {
 	 */
 	@Override
 	public User checkLogined(String sessionId) {
-		String cache = redis.get(RedisKeyEnum.USER_LOGIN_CACHE.key);
+		String cache = redis.get(String.format(RedisKeyEnum.USER_LOGIN_CACHE.key,sessionId));
 		Gson gson = new Gson();
 		User user = gson.fromJson(cache,User.class);
 		return user;

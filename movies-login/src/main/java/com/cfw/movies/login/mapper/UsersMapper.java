@@ -21,7 +21,7 @@ public interface UsersMapper extends BaseMapper<User> {
 	 * @param userName
 	 * @return
 	 */
-	@Select("SELECT username, head_pic, type FROM users WHERE username = #{userName} limit 1")
+	@Select("SELECT id,user_key as userKey, username, head_pic, type FROM users WHERE username = #{userName} limit 1")
     User selectUserInBriefByName(@Param("userName") String userName);
 
 	/**

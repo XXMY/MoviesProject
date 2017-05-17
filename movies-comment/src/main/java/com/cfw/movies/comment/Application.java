@@ -7,8 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Created by Cfw on 2017/3/10.
  */
 @SpringBootApplication(scanBasePackages = {
-        "com.cfw.movies.comment",
-        "com.cfw.movies.commons"})
+        "com.cfw.plugins",
+        "com.cfw.movies.commons",
+        "com.cfw.movies.login",
+        "com.cfw.movies.comment"})
 public class Application {
 
     public static void main(String [] args){

@@ -11,7 +11,8 @@ public enum ResponseTypeEnum {
     USER_EXISTS(1002,"用户已存在"),
     USER_NOT_EXISTS(1003,"用户不存在"),
     USER_LOGINED(1004,"用户已登录"),
-    USER_NOT_LOGINED(1005,"用户未登录");
+    USER_NOT_LOGINED(1005,"用户未登录"),
+    COMMENT_FAILED(1006,"评论失败");
 
     private int code;
     private String description;
