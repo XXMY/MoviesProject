@@ -11,7 +11,10 @@ import com.cfw.movies.commons.model.Type;
 import com.cfw.movies.commons.model.User;
 import com.cfw.movies.commons.vo.MoviesResponse;
 import com.cfw.movies.home.service.MovieService;
+import com.cfw.plugins.rmi.annotation.CRmiImport;
+import com.cfw.plugins.rmi.annotation.CRmiImportService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,12 +33,13 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping("/Home")
+@CRmiImport
 public class HomeController extends BaseController {
 
 	@Autowired
 	private MovieService movieService;
 
-	@Resource(name = "commentService")
+	@CRmiImportService
 	private CommentService commentService;
 	
 	/**

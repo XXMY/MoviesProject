@@ -15,6 +15,9 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by Cfw on 2017/5/16.
  */
@@ -35,9 +38,9 @@ public class CommentServiceTest {
         xmlBeanDefinitionReader.setEntityResolver(new ResourceEntityResolver(applicationContext));
         xmlBeanDefinitionReader.loadBeanDefinitions("/rmi/rmiImporter.xml");
 
-
         applicationContext.getBean("userService");
         context.getBean("userService");
 
     }
+
 }

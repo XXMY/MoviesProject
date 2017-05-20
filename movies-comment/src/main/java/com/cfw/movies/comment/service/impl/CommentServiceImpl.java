@@ -26,9 +26,6 @@ public class CommentServiceImpl implements CommentService{
     @Resource(name = "commentDao")
     private CommentDao commentDao;
 
-    @Autowired
-    //@Resource(name = "userService")
-    @Lazy
     @CRmiImportService
     private UserService userService;
 
