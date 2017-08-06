@@ -11,6 +11,9 @@ import java.util.Map;
 @Component
 @ConfigurationProperties(prefix = "movies")
 public class CommonProperties {
+
+    private static String moduleName;
+
     private static int rsaKeyPairNumber = 5;
 
     public static int getRsaKeyPairNumber() {
@@ -21,4 +24,11 @@ public class CommonProperties {
         CommonProperties.rsaKeyPairNumber = rsaKeyPairNumber;
     }
 
+    public static String getModuleName() {
+        return moduleName;
+    }
+
+    public static void setModuleName(String moduleName) {
+        CommonProperties.moduleName = moduleName;
+    }
 }
