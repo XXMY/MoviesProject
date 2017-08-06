@@ -9,6 +9,8 @@ import com.cfw.movies.login.service.UserService;
 import com.cfw.plugins.security.rsa.RSA;
 import com.cfw.plugins.security.rsa.RSAKeyPairs;
 import com.google.gson.Gson;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,7 +30,9 @@ public class LoginController extends BaseController {
 	
 	@Resource(name = "userService")
 	private UserService userService;
-	
+
+	private Log logger = LogFactory.getLog(LoginController.class);
+
 	/**
 	 * Check user whether logined.
 	 * @author Fangwei_Cai
@@ -39,6 +43,8 @@ public class LoginController extends BaseController {
 	@RequestMapping(value="/logined",method=RequestMethod.GET)
 	@ResponseBody
 	public MoviesResponse logined(HttpSession session){
+		this.logger.info("[/Login/logined]");
+
 		MoviesResponse result = new MoviesResponse();
 		// Get the information from cache.
 		User user = this.userService.checkLogined(session.getId());

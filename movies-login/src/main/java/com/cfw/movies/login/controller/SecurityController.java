@@ -6,8 +6,6 @@ import com.cfw.movies.commons.vo.MoviesResponse;
 import com.cfw.movies.commons.vo.RsaVO;
 import com.cfw.plugins.security.properties.SecurityProperties;
 import com.cfw.plugins.security.rsa.RSAKeyPairs;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Base64Utils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +21,7 @@ import java.util.UUID;
 @Controller
 @RequestMapping("/Login/Security")
 public class SecurityController extends BaseController {
-    private Log logger = LogFactory.getLog(SecurityController.class);
+    //private Log logger = LogFactory.getLog(SecurityController.class);
 
     /**
      * 获得秘钥
@@ -47,7 +45,7 @@ public class SecurityController extends BaseController {
             rsaVO.setKey(Base64Utils.encodeToString(publicKey.getEncoded()));
             response.setData(rsaVO);
         }catch(Exception e){
-            this.logger.error("[/User/key] " + e.getMessage() + "requestId="+requestId,e);
+            //this.logger.error("[/User/key] " + e.getMessage() + "requestId="+requestId,e);
             response = buildResponse(ResponseTypeEnum.SYSTEM_ERROR);
         }
 
