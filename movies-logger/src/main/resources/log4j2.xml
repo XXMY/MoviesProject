@@ -7,18 +7,22 @@
             <ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY" />
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] [%p] %c (%F:%L) - %m%n" />
         </Console>
-        <!-- 这个就是自定义的Appender -->
-        <RabbitMQ name="RabbitMQ">
-            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] [%p] %c (%F:%L) - %m" />
-        </RabbitMQ>
+        <RollingFile name="RollingFile" fileName="logs/app.log"
+                     filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout>
+                <Pattern>%m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="250 MB"/>
+            </Policies>
+        </RollingFile>
     </Appenders>
     <Loggers>
         <logger name="com.cfw.movies" level="debug" />
-        <logger name="org.apache.http" level="info" />
-        <logger name="org.apache.commons" level="info" />
         <Root level="info">
             <AppenderRef ref="Console" />
-            <AppenderRef ref="RabbitMQ" />
+            <AppenderRef ref="RollingFile" />
         </Root>
     </Loggers>
 </Configuration>

@@ -3,6 +3,7 @@ package com.cfw.movies.commons.properties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -15,6 +16,16 @@ public class CommonProperties {
     private static String moduleName;
 
     private static int rsaKeyPairNumber = 5;
+
+    private Map<String,Integer> threadsNumber;
+
+    public Map<String, Integer> getThreadsNumber() {
+        return threadsNumber;
+    }
+
+    public void setThreadsNumber(Map<String, Integer> threadsNumber) {
+        this.threadsNumber = threadsNumber;
+    }
 
     public static int getRsaKeyPairNumber() {
         return rsaKeyPairNumber;
