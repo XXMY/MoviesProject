@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="rabbitMqInitializer" class="com.cfw.plugins.mq.rabbitmq.RabbitMQInitializer">
+        <constructor-arg name="rabbitTemplate" ref="rabbitTemplate"/>
+        <constructor-arg name="rabbitPropertiesList">
+            <list>
+                <bean id="rpc" class="com.cfw.plugins.mq.rabbitmq.RabbitProperties">
+                    <property name="usage" value="RPC" />
+                    <property name="exchange">
+                        <bean class="org.springframework.amqp.core.DirectExchange"
+                              c:name="movies-user-rpc-exchange"
+                              c:durable="true"
+                              c:autoDelete="false"
+                        />
+                    </property>
+                    <property name="queue">
+                        <list>
+                            <bean class="org.springframework.amqp.core.Queue"
+                                  c:name="movies-user-rpc-queue"
+                                  c:durable="true"
+                                  c:autoDelete="false"
+                                  c:exclusive="false"
+                            />
+                        </list>
+                    </property>
+                    <property name="binding">
+                        <list>
+                            <bean class="org.springframework.amqp.core.Binding">
+                                <constructor-arg name="destination" value="movies-user-rpc-queue"/>
+                                <constructor-arg name="destinationType" value="QUEUE" />
+                                <constructor-arg name="exchange" value="movies-user-rpc-exchange"/>
+                                <constructor-arg name="routingKey" value="movies-user-rpc-key"/>
+                                <constructor-arg name="arguments">
+                                    <map />
+                                </constructor-arg>
+                            </bean>
+                        </list>
+                    </property>
+                </bean>
+            </list>
+        </constructor-arg>
+    </bean>
+</beans>

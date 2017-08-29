@@ -1,4 +1,4 @@
-package com.cfw.movies.login.dao;
+package com.cfw.movies.user.dao;
 
 
 import com.cfw.movies.commons.model.User;

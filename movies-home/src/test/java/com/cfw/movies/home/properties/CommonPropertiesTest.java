@@ -16,7 +16,5 @@ public class CommonPropertiesTest {
 
     @Test
     public void testProperties(){
-        System.out.println(CommonProperties.getCommentRmiPort());
-        System.out.println(CommonProperties.getCommentRmiHost());
     }
 }

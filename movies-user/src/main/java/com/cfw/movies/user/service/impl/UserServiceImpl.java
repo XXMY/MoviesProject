@@ -1,20 +1,16 @@
-package com.cfw.movies.login.service.impl;
+package com.cfw.movies.user.service.impl;
 
 import com.cfw.movies.commons.enums.RedisKeyEnum;
 import com.cfw.movies.commons.model.User;
-import com.cfw.movies.login.service.UserService;
-import com.cfw.plugins.mq.rabbitmq.rpc.RemoteProcedureRequest;
-import com.cfw.plugins.mq.rabbitmq.rpc.RemoteProcedureResponse;
-import com.cfw.plugins.mq.rabbitmq.send.RoutingSender;
+import com.cfw.movies.user.dao.UsersDao;
+import com.cfw.movies.user.service.UserService;
+import com.cfw.plugins.mq.rabbitmq.rpc.annotation.CRpcService;
 import com.cfw.plugins.redis.CRedis;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -22,13 +18,14 @@ import java.util.concurrent.TimeUnit;
  * @time since 2016年3月26日 下午8:07:16
  */
 @Service("userService")
+@CRpcService
 public class UserServiceImpl implements UserService {
 
 	@Autowired
-	private CRedis redis;
+	private UsersDao usersDaoImpl;
 
 	@Autowired
-    private RoutingSender routingSender;
+	private CRedis redis;
 
 	/**
 	 * User login.<br/>
@@ -72,6 +69,23 @@ public class UserServiceImpl implements UserService {
 		User user = gson.fromJson(cache,User.class);
 		return user;
 	}
+
+	/**
+	 * Get user's brief information through user's name
+	 *
+	 * @param username
+	 * @return Brief information of user.
+	 * @author CaiFangwei
+	 * @time since 2017-3-12 16:09:53
+	 */
+	@Override
+	public User getBriefInfo(String username) {
+		if(StringUtils.isEmpty(username))
+			return null;
+
+		return this.usersDaoImpl.selectUserInBrief(username);
+	}
+
 	/**
 	 * Get user's brief information through user's name and password
 	 *
@@ -81,22 +95,26 @@ public class UserServiceImpl implements UserService {
 	 * @author CaiFangwei
 	 * @time since 2017-3-12 16:34:17
 	 */
-	private User getBriefInfo(String username, String password) {
+	@Override
+	public User getBriefInfo(String username, String password) {
 		if(StringUtils.isEmpty(username) || StringUtils.isEmpty(password))
 			return null;
 
-		// Call remote procedure.
-        RemoteProcedureRequest request = new RemoteProcedureRequest();
-        request.setService("com.cfw.movies.user.service.UserService");
-        request.setMethod("getBriefInfo");
-        List<Object> data = new ArrayList<>();
-        data.add(username);
-        data.add(password);
-        request.setData(data);
-        request.setRequetId(UUID.randomUUID().toString());
+		return this.usersDaoImpl.selectUserInBrief(username,password);
+	}
 
-        RemoteProcedureResponse response = (RemoteProcedureResponse)this.routingSender.callRemoteProcedure(request);
 
-        return (User)response.getResult();
+	/**
+	 * @author fwCai
+	 * @since 2016.06.26 20:13
+	 */
+	@Override
+	public boolean modifyUsersInfo(User newUser) {
+		int result = usersDaoImpl.updateUser(newUser);
+		
+		if(result>0)
+			return true;
+		
+		return false;
 	}
 }

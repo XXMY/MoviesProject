@@ -77,7 +77,7 @@ public class LoginController extends BaseController {
 			user = (User)gson.fromJson(decoded,User.class);
 			user = userService.userLogin(session.getId(),user.getUsername(),user.getPassword());
 		}catch(Exception e){
-
+			user = null;
 		}
 
 		if(user != null){

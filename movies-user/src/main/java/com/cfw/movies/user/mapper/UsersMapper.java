@@ -1,4 +1,4 @@
-package com.cfw.movies.login.mapper;
+package com.cfw.movies.user.mapper;
 
 import com.cfw.movies.commons.model.User;
 import com.cfw.plugins.database.mapper.BaseMapper;

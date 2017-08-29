@@ -1,8 +1,8 @@
-package com.cfw.movies.login.dao.impl;
+package com.cfw.movies.user.dao.impl;
 
 import com.cfw.movies.commons.model.User;
-import com.cfw.movies.login.dao.UsersDao;
-import com.cfw.movies.login.mapper.UsersMapper;
+import com.cfw.movies.user.dao.UsersDao;
+import com.cfw.movies.user.mapper.UsersMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
