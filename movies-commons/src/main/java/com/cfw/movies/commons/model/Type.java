@@ -1,11 +1,14 @@
 package com.cfw.movies.commons.model;
 
+import java.io.Serializable;
+
 /**
  * @author Fangwei_Cai
  * @time since 2016年3月4日 下午10:02:33
  */
-public class Type {
+public class Type implements Serializable{
 
+	private static final long serialVersionUID = -1569597872782671922L;
 	private Integer id;
 	private String type_name;
 	

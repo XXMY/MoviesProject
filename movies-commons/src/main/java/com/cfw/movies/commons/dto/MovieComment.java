@@ -1,10 +1,13 @@
 package com.cfw.movies.commons.dto;
 
+import java.io.Serializable;
+
 /**
  * @author Fangwei_Cai
  * @time since 2016年5月1日 上午11:22:46
  */
-public class MovieComment {
+public class MovieComment implements Serializable{
+	private static final long serialVersionUID = 2501496991172549495L;
 	// movie id.
 	private Long mid;
 	

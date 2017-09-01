@@ -1,5 +1,6 @@
 package com.cfw.movies.commons.dto;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
 /**
@@ -7,8 +8,9 @@ import java.util.Arrays;
  * @author Fangwei_Cai
  * @time since 2016年4月9日 下午9:50:30
  */
-public class MovieSubmit {
+public class MovieSubmit implements Serializable{
 
+	private static final long serialVersionUID = 7249277209145071943L;
 	//Template path of main picture.
 	private String mainPicture;
 	

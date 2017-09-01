@@ -9,6 +9,7 @@ import com.cfw.movies.recommend.dao.TempRecommendDao;
 import com.cfw.movies.recommend.service.RecommendService;
 import com.cfw.movies.recommend.thread.RecommendStatus;
 import com.cfw.movies.recommend.thread.RecommendThread;
+import com.cfw.plugins.rmi.annotation.CRmiExport;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,7 @@ import java.util.List;
  */
 
 @Service("recommendService")
+@CRmiExport
 public class RecommendServiceImpl implements RecommendService {
 
 	@Autowired

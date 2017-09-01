@@ -4,6 +4,7 @@ import com.cfw.movies.commons.model.Recommend;
 import com.cfw.movies.commons.model.User;
 import com.cfw.movies.recommend.mapper.TempRecommendMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  * @author Fangwei_Cai
  * @time since 2016年5月29日 上午11:29:10
  */
+@Repository
 public class TempRecommendDao {
 
 	@Autowired

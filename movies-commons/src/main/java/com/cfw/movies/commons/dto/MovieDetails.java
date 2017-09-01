@@ -3,6 +3,7 @@ package com.cfw.movies.commons.dto;
 import com.cfw.movies.commons.model.Comment;
 import com.cfw.movies.commons.model.Movie;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -11,8 +12,9 @@ import java.util.List;
  * @author Fangwei_Cai
  * @time since 2016年5月7日 上午10:30:09
  */
-public class MovieDetails {
-	
+public class MovieDetails implements Serializable{
+
+	private static final long serialVersionUID = -3143738094760195365L;
 	private Movie movie;
 	
 	private List<Comment> comments;

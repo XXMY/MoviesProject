@@ -5,6 +5,7 @@ import com.cfw.movies.commons.model.*;
 import com.cfw.movies.commons.reflect.SimpleAssign;
 import com.cfw.movies.home.dao.*;
 import com.cfw.movies.home.service.MovieService;
+import com.cfw.plugins.rmi.annotation.CRmiExport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -17,7 +18,8 @@ import java.util.Map;
  * @author Fangwei_Cai
  * @time since 2016年4月2日 下午5:55:41
  */
-@Service("movieServiceImpl")
+@Service("movieService")
+@CRmiExport
 public class MovieServiceImpl implements MovieService {
 
 	@Autowired

@@ -1,11 +1,14 @@
 package com.cfw.movies.commons.dto;
 
+import java.io.Serializable;
+
 /**
  * Class UploadResult, used in file upload method, as returned data.
  * @author CaiFangwei
  * @time since 2015年11月17日 下午5:22:04
  */
-public class UploadResult {
+public class UploadResult implements Serializable{
+	private static final long serialVersionUID = 1085344081624935961L;
 	private short status;
 	private String message;
 	private String tempFileName; // Temparory file path 

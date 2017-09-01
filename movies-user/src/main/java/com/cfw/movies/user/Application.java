@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ImportResource;
         "com.cfw.plugins",
         "com.cfw.movies.commons",
         "com.cfw.movies.user"})
-//@ImportResource(locations = {"classpath:ApplicationContext*.xml"})
+@ImportResource(locations = {"classpath:ApplicationContext*.xml"})
 public class Application {
 
     public static void main(String [] args){

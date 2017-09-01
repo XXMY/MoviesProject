@@ -236,7 +236,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 2016.06.01 17:11 -->
-	<select id="selectDesciptionId" parameterType="Integer" resultType="Long">
+	<select id="selectDesciptionId" parameterType="Integer" resultType="Integer">
 		SELECT
 			did
 		FROM 
