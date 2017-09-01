@@ -51,7 +51,7 @@ public class ServiceExporter {
 
     @EventListener
     @Autowired
-    public void fireDispatcher(RabbitTemplate rabbitTemplate){
+    public void runDispatcher(RabbitTemplate rabbitTemplate){
         InboundDispatcher.staticStartup(rabbitTemplate,threadProperties.getInboundDispatcherThreadsNumber());
     }
 }

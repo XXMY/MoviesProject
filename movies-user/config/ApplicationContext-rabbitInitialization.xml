@@ -16,7 +16,7 @@
                               c:autoDelete="false"
                         />
                     </property>
-                    <property name="queue">
+                    <property name="queues">
                         <list>
                             <bean class="org.springframework.amqp.core.Queue"
                                   c:name="movies-user-rpc-queue"
@@ -26,7 +26,7 @@
                             />
                         </list>
                     </property>
-                    <property name="binding">
+                    <property name="bindings">
                         <list>
                             <bean class="org.springframework.amqp.core.Binding">
                                 <constructor-arg name="destination" value="movies-user-rpc-queue"/>
