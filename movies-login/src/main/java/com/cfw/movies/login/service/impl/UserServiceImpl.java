@@ -5,6 +5,7 @@ import com.cfw.movies.commons.model.User;
 import com.cfw.movies.login.service.UserService;
 import com.cfw.plugins.mq.rabbitmq.rpc.RemoteProcedureRequest;
 import com.cfw.plugins.mq.rabbitmq.rpc.RemoteProcedureResponse;
+import com.cfw.plugins.mq.rabbitmq.rpc.client.dispatch.OutboundDispatcher;
 import com.cfw.plugins.mq.rabbitmq.send.RoutingSender;
 import com.cfw.plugins.redis.CRedis;
 import com.google.gson.Gson;
@@ -28,7 +29,7 @@ public class UserServiceImpl implements UserService {
 	private CRedis redis;
 
 	@Autowired
-    private RoutingSender routingSender;
+	private OutboundDispatcher dispatcher;
 
 	/**
 	 * User login.<br/>
@@ -86,17 +87,15 @@ public class UserServiceImpl implements UserService {
 			return null;
 
 		// Call remote procedure.
-        RemoteProcedureRequest request = new RemoteProcedureRequest();
-        request.setService("com.cfw.movies.user.service.UserService");
-        request.setMethod("getBriefInfo");
         List<Object> data = new ArrayList<>();
-        data.add(username);
-        data.add(password);
-        request.setData(data);
-        request.setRequetId(UUID.randomUUID().toString());
+		data.add(username);
+		data.add(password);
+		try {
+			return dispatcher.dispatch("movies-user","com.cfw.movies.user.service.UserService","getBriefInfo",data,new User());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-        RemoteProcedureResponse response = (RemoteProcedureResponse)this.routingSender.callRemoteProcedure(request);
-
-        return (User)response.getResult();
+		return null;
 	}
 }

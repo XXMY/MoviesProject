@@ -1,10 +1,11 @@
 package com.cfw.movies.logger.event;
 
 
-import com.cfw.movies.commons.properties.CommonProperties;
 import com.cfw.movies.logger.mq.RabbitLoggerStartup;
+import com.cfw.plugins.mq.rabbitmq.RabbitConfigurationProperties;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
@@ -15,12 +16,14 @@ import org.springframework.stereotype.Component;
 public class StartupEvent {
 
     @Autowired
-    private CommonProperties commonProperties;
+    private RabbitConfigurationProperties rabbitConfigurationProperties;
+
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
 
     @EventListener
-    @Autowired
-    public void rabbitLoggerStartup(RabbitTemplate rabbitTemplate) throws Exception {
-        RabbitLoggerStartup.startup(rabbitTemplate,commonProperties.getThreadsNumber());
+    public void rabbitLoggerStartup(ContextRefreshedEvent event) throws Exception {
+        RabbitLoggerStartup.startup(rabbitTemplate,rabbitConfigurationProperties.getMqQueueThreadsNumber());
     }
 
 

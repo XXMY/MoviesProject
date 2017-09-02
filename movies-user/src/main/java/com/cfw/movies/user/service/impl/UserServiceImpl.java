@@ -4,7 +4,7 @@ import com.cfw.movies.commons.enums.RedisKeyEnum;
 import com.cfw.movies.commons.model.User;
 import com.cfw.movies.user.dao.UsersDao;
 import com.cfw.movies.user.service.UserService;
-import com.cfw.plugins.mq.rabbitmq.rpc.annotation.CRpcService;
+import com.cfw.plugins.mq.rabbitmq.rpc.server.annotation.CRpcService;
 import com.cfw.plugins.redis.CRedis;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
