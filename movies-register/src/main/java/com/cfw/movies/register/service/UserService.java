@@ -14,7 +14,7 @@ public interface UserService {
 	 * @author Fangwei_Cai
 	 * @time since 2016年3月26日 下午7:38:17
 	 */
-	boolean userExists(String userName);
+	boolean userExists(String username);
 
 	
 	/**

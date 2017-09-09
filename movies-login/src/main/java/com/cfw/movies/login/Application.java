@@ -13,7 +13,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 //@ImportResource(locations = {"classpath:ApplicationContext*.xml"})
 public class Application {
 
-    public static void main(String [] args){
-        SpringApplication.run(Application.class);
+    public static void main(String [] args) throws Exception {
+        System.out.println("System startup ...");
+        try{
+            SpringApplication.run(Application.class);
+        }catch (Exception e){
+            throw new Exception(e);
+        }
+
+        System.out.println("System startup done.");
     }
 }

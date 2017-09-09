@@ -10,28 +10,6 @@ import com.cfw.movies.commons.model.User;
 public interface UserService {
 
 	/**
-	 * User login.<br/>
-	 * Check whether username and password valid.
-	 * @param sessionId
-	 * @param username
-	 * @param password
-	 * @return user's information to display.
-	 * @author CaiFangwei
-	 * @time since 2017-3-12 16:31:58
-	 */
-	User userLogin(String sessionId, String username, String password);
-
-	/**
-	 * Check whether user logined.</br>
-	 * Use session id to get information from cache.
-	 * @param sessionId
-	 * @return user's brief information
-	 * @author CaiFangwei
-	 * @time since 2017-3-12 17:03:54
-	 */
-	User checkLogined(String sessionId);
-
-	/**
 	 * Get user's brief information through user's name
 	 * @param username
 	 * @return Brief information of user.
@@ -55,5 +33,18 @@ public interface UserService {
 	 */
 	boolean modifyUsersInfo(User newUser);
 
+	/**
+	 * Check whether user exists.
+	 * @author Fangwei_Cai
+	 * @time since 2016年3月26日 下午7:38:17
+	 */
+	boolean userExists(String userName);
+
+
+	/**
+	 * @author Fangwei_Cai
+	 * @time since 2016年3月27日 上午10:05:11
+	 */
+	boolean register(User user);
 
 }

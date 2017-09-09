@@ -1,7 +1,8 @@
-package com.cfw.movies.register.util;
+package util;
 
 import com.cfw.movies.commons.enums.AccountTypeEnum;
-import com.cfw.movies.register.Application;
+import com.cfw.movies.user.Application;
+import com.cfw.movies.user.util.UniqueGenerator;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

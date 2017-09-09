@@ -1,11 +1,12 @@
 package com.cfw.movies.register.service.impl;
 
-import com.cfw.movies.commons.enums.AccountTypeEnum;
 import com.cfw.movies.commons.model.User;
-import com.cfw.movies.register.dao.UsersDao;
 import com.cfw.movies.register.service.UserService;
-import com.cfw.movies.register.util.UniqueGenerator;
+import com.cfw.plugins.mq.rabbitmq.rpc.client.dispatch.OutboundDispatcher;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,21 +16,32 @@ import org.springframework.stereotype.Service;
 @Service("registerServiceImpl")
 public class UserServiceImpl implements UserService {
 
-	@Autowired
-	private UniqueGenerator keyGenerator;
+	private Log logger = LogFactory.getLog(UserServiceImpl.class);
 
 	@Autowired
-	private UsersDao usersDaoImpl;
+	private OutboundDispatcher outboundDispatcher;
+
+	@Value("${movies.remote.user}")
+	private String remoteUser;
+	@Value("${movies.remote.userService}")
+	private String remoteService;
+	@Value("${movies.remote.userService.userExists}")
+	private String remoteUserExists;
+	@Value("${movies.remote.userService.register}")
+	private String remoteRegister;
 	
 	/**
 	 * @author fwCai
 	 * @since 2016.03.26 20:12
 	 */
 	@Override
-    public boolean userExists(String userName) {
-		User user = usersDaoImpl.selectUserByName(userName);
-
-		return user == null ? false : true;
+    public boolean userExists(String username) {
+		try {
+			return this.outboundDispatcher.dispatch(remoteUser,remoteService,remoteUserExists,Boolean.class,username);
+		} catch (Exception e) {
+			this.logger.error(e.getMessage(),e);
+		}
+		return false;
 	}
 
 	/**
@@ -38,13 +50,11 @@ public class UserServiceImpl implements UserService {
 	 */
 	@Override
 	public boolean register(User user) {
-		boolean userExists = userExists(user.getUsername());
-		if(!userExists){
-			user.setUserKey(keyGenerator.newUserKey(AccountTypeEnum.MOVIE));
-
-			return usersDaoImpl.addUser(user) > 0;
+		try {
+			return this.outboundDispatcher.dispatch(remoteUser,remoteService,remoteRegister,Boolean.class,user);
+		} catch (Exception e) {
+			this.logger.error(e.getMessage(),e);
 		}
-		
 		return false;
 	}
 

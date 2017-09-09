@@ -1,6 +1,6 @@
 package com.cfw.movies.logger.mq;
 
-import com.cfw.movies.logger.AbstractThread;
+import com.cfw.plugins.thread.AbstractThread;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.amqp.core.Message;
@@ -14,7 +14,7 @@ import java.util.Set;
  * Created by Duskrain on 2017/8/11.
  */
 
-class RabbitLoggerThread extends AbstractThread{
+class RabbitLoggerThread extends AbstractThread {
     private Log logger = LogFactory.getLog(RabbitLoggerThread.class);
 
     private String queueName;
@@ -26,7 +26,7 @@ class RabbitLoggerThread extends AbstractThread{
     }
 
     public RabbitLoggerThread(String queueName, int threadsNumber, RabbitTemplate rabbitTemplate) throws Exception {
-        super(threadsNumber);
+        super("RabbitLoggerThread",threadsNumber);
         this.queueName = queueName;
         this.rabbitTemplate = rabbitTemplate;
     }

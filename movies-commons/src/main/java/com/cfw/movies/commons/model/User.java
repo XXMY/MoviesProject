@@ -9,13 +9,13 @@ import java.util.Date;
  */
 public class User implements Serializable{
 
-	private static final long serialVersionUID = -6883086220113131250L;
+	private static final long serialVersionUID = 1504713516058635484L;
 	private Integer id;
 	private String userKey;
 	private String username;
 	private String password;
 	private String head_pic;
-	private boolean type;
+	private Boolean type;
 	private Date registerTime;
 	private Date lastLogin;
 

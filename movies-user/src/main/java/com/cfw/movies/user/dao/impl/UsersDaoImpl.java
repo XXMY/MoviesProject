@@ -17,8 +17,16 @@ public class UsersDaoImpl implements UsersDao {
 	private UsersMapper usersMapper;
 
 	@Override
-	public int checkUser(String userName) {
-		return 0;
+	public int selectUserNumber(String username) {
+		return this.usersMapper.selectUserNumber(username);
+	}
+	/**
+	 * @author fwCai
+	 * @since 2016.03.27 10:08
+	 */
+	@Override
+	public int addUser(User user) {
+		return this.usersMapper.insertOne(user);
 	}
 
 	/**
@@ -27,22 +35,7 @@ public class UsersDaoImpl implements UsersDao {
 	 */
 	@Override
 	public int updateUser(User user) {
-		
-		int result = usersMapper.updateOne(user);
-		
-		return result;
-	}
-
-	/**
-	 * @author fwCai
-	 * @since 2016.03.27 10:08
-	 */
-	@Override
-	public int addUser(User user) {
-		
-		int result = usersMapper.insertOne(user);
-		
-		return result;
+		return this.usersMapper.updateOne(user);
 	}
 	
 	/**
@@ -50,9 +43,8 @@ public class UsersDaoImpl implements UsersDao {
 	 * @time since 2016年5月1日 下午2:16:42
 	 */
 	@Override
-	public User selectUserInBrief(String username) {
-		User user = usersMapper.selectUserInBriefByName(username);
-		return user;
+	public User selectUserByName(String username) {
+		return this.usersMapper.selectUserByName(username);
 	}
 
 	/**
@@ -64,7 +56,6 @@ public class UsersDaoImpl implements UsersDao {
 	 */
 	@Override
 	public User selectUserInBrief(String username, String password) {
-		User user = this.usersMapper.selectUserInBrief(username,password);
-		return user;
+		return this.usersMapper.selectUserInBrief(username,password);
 	}
 }

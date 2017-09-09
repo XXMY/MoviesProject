@@ -1,4 +1,4 @@
-package com.cfw.movies.register.util;
+package com.cfw.movies.user.util;
 
 import com.cfw.movies.commons.enums.AccountTypeEnum;
 import com.cfw.movies.commons.enums.RedisKeyEnum;

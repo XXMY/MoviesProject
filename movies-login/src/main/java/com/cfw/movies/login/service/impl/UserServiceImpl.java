@@ -3,19 +3,14 @@ package com.cfw.movies.login.service.impl;
 import com.cfw.movies.commons.enums.RedisKeyEnum;
 import com.cfw.movies.commons.model.User;
 import com.cfw.movies.login.service.UserService;
-import com.cfw.plugins.mq.rabbitmq.rpc.RemoteProcedureRequest;
-import com.cfw.plugins.mq.rabbitmq.rpc.RemoteProcedureResponse;
 import com.cfw.plugins.mq.rabbitmq.rpc.client.dispatch.OutboundDispatcher;
-import com.cfw.plugins.mq.rabbitmq.send.RoutingSender;
 import com.cfw.plugins.redis.CRedis;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -30,6 +25,15 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private OutboundDispatcher dispatcher;
+
+	@Value("${movies.remote.user}")
+	private String remoteServer;
+
+	@Value("${movies.remote.userService}")
+	private String remoteService;
+
+	@Value("${movies.remote.userService.getBriefInfo}")
+	private String remoteGetBriefInfo;
 
 	/**
 	 * User login.<br/>
@@ -87,11 +91,8 @@ public class UserServiceImpl implements UserService {
 			return null;
 
 		// Call remote procedure.
-        List<Object> data = new ArrayList<>();
-		data.add(username);
-		data.add(password);
 		try {
-			return dispatcher.dispatch("movies-user","com.cfw.movies.user.service.UserService","getBriefInfo",data,new User());
+			return (User) dispatcher.dispatch(remoteServer,remoteService,remoteGetBriefInfo,User.class,username,password);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

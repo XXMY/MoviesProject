@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfw.movies.user.mapper.UsersMapper">
+	
+	<insert id="insertOne" parameterType="User" >
+		INSERT INTO 
+			users(
+				user_key,
+				username,
+				password,
+				register_time,
+				last_login
+			) 
+		VALUES(
+			#{userKey},
+			#{username},
+			#{password},
+			now(),
+			now()
+		)
+	</insert>
+
+</mapper>
